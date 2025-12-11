@@ -1,0 +1,9 @@
+.masterSettingPage {
+    z-index: 99;
+    display: none;
+}
+
+.masterSettingPageIconTextContentList {
+    padding-top: 0;
+    background-color: white;
+}

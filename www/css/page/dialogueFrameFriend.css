@@ -1,0 +1,562 @@
+/* 会话框 */
+
+.dialogueFrameFriendPage {
+    transition: left 0.2s;
+    z-index: 9;
+    background-color: var(--bgColor--gray1);
+    display: none;
+}
+
+.dialogueFrameFriendChatBgImage {
+    position: absolute;
+    top: 2.5rem;
+    left: 0;
+    width: 100%;
+    height: 50rem;
+    z-index: 1;
+    background-color: var(--bgColor--gray1);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.dialogueFrameFriendTop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+}
+
+.dialogueFrameFriendTopUnread {
+    color: black;
+    background-color: #d5d5d5;
+    transform: scale(1.1) translateX(-0.2rem);
+}
+
+/* 会话框-底部 */
+
+.dialogueFrameFriendBottom {
+    width: 100%;
+    position: absolute;
+    z-index: 3;
+    bottom: -1px;
+    left: 0;
+    background-color: #f7f7f7;
+}
+
+/* 会话框-底部-消息操作 */
+
+.dialogueFrameFriendMsgOperate {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    padding: 0.6rem 0;
+}
+
+.dialogueFrameFriendMsgOperate>img {
+    width: 1.75rem;
+    margin-bottom: 0.3rem;
+}
+
+.dialogueFrameFriendMsgBox {
+    width: 17rem;
+    position: relative;
+}
+
+.dialogueFrameFriendMsgArea {
+    width: 100%;
+    min-height: 2rem;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    border-radius: 0.2rem;
+    background-color: white;
+    caret-color: var(--textColor--green1);
+    font-size: 1.06rem;
+    line-height: 1.4rem;
+}
+
+.dialogueFrameFriendMsgArea:focus {
+    border: none;
+    outline: none;
+}
+
+.voiceRecognitionBtn {
+    width: 2rem;
+    height: 2rem;
+    background-image: url(../../assets/img/dialogueFrameFriend/huatong1.png);
+    background-size: cover;
+    position: absolute;
+    bottom: 0.2rem;
+    right: 0.1rem;
+}
+
+/* 引用消息 */
+
+.dialogueFrameFriendMsgciteBox {
+    background-color: #eaeaea;
+    border-radius: 0.2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.1rem;
+    padding: 0.5rem;
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dialogueFrameFriendMsgcite {
+    max-width: 92%;
+    font-size: 0.85rem;
+    color: #535353;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.hideDialogueFrameFriendMsgcite {
+    width: 0.8rem;
+    padding: 0.15rem;
+    box-sizing: border-box;
+    background-color: #b2b2b2;
+    border-radius: 10rem;
+}
+
+/* 发送消息按钮 */
+
+.dialogueFrameFriendBottomSendBtn {
+    background-color: var(--bgColor--green1);
+    border: none;
+    color: white;
+    margin-bottom: 0.2rem;
+    width: 3.5rem;
+    height: 2rem;
+    border-radius: 0.4rem;
+    display: none;
+}
+
+/* 会话框-底部-更多 */
+
+.dialogueFrameFriendMoreOperate {
+    width: 100%;
+    height: 19.5rem;
+    border-top: 1px solid #ededed;
+    display: none;
+}
+
+.dialogueFrameFriendMoreOperatePagination {
+    position: relative;
+    top: 2rem;
+}
+
+.dialogueFrameFriendMoreOperate>.swiper-wrapper {
+    height: 15rem;
+    display: flex;
+    width: 200%;
+}
+
+.dialogueFrameFriendMoreOptionContainer {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+}
+
+.dialogueFrameFriendMoreOptionContainer>[option] {
+    margin-top: 2.2rem;
+    text-align: center;
+    font-size: 0.7rem;
+    color: #777777;
+}
+
+.dialogueFrameFriendMoreOptionContainer>[option]>img {
+    width: 3.6rem;
+    margin-bottom: 0.1rem;
+    background-color: white;
+    border-radius: 0.8rem;
+}
+
+.transparentLine {
+    width: 100%;
+    height: 1px;
+    background-color: transparent;
+}
+
+/* 分页器样式 */
+
+.dialogueFrameFriendMoreOperate-pagination-bullet {
+    width: 0.35rem;
+    height: 0.35rem;
+    margin: 0 0.3rem;
+    display: inline-block;
+    border-radius: 1rem;
+    background-color: rgb(208, 208, 208);
+}
+
+.dialogueFrameFriendMoreOperate-pagination-active {
+    background-color: rgb(102, 102, 102);
+}
+
+/* 会话框-聊天列表 */
+
+.dialogueFrameFriendChatContainer {
+    width: 100%;
+    height: 48rem;
+    padding-bottom: 0.8rem;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+}
+
+.chatMsgContainer {
+    width: 100%;
+    padding: 0.5rem 0;
+    box-sizing: border-box;
+}
+
+/* 自己&对方消息 */
+
+.chatMsgContainer[role="self"]>.avatar,
+.chatMsgContainer[role="other"]>.avatar {
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 0.2rem;
+}
+
+.chatMsgContainer[role="self"]>.chatMsgParent,
+.chatMsgContainer[role="other"]>.chatMsgParent {
+    /* 最大宽度=页面宽度-头像外边距*2-头像宽度*2-消息外边距*2 */
+    max-width: calc(100% - 0.7rem * 2 - 2.4rem * 2 - 0.7rem * 2);
+    word-wrap: break-word;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 消息主体 */
+
+.chatMsgContainer[role="self"]>.chatMsgParent>.chatMsgBodyContent,
+.chatMsgContainer[role="other"]>.chatMsgParent>.chatMsgBodyContent {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 100%;
+}
+
+.chatMsgContainer[role="self"][type="text"]>.chatMsgParent>.chatMsgBodyContent,
+.chatMsgContainer[role="other"][type="text"]>.chatMsgParent>.chatMsgBodyContent,
+.chatMsgContainer[role="self"][type="videoCall"]>.chatMsgParent>.chatMsgBodyContent,
+.chatMsgContainer[role="other"][type="videoCall"]>.chatMsgParent>.chatMsgBodyContent,
+.chatMsgContainer[role="self"][type="voiceCall"]>.chatMsgParent>.chatMsgBodyContent,
+.chatMsgContainer[role="other"][type="voiceCall"]>.chatMsgParent>.chatMsgBodyContent {
+    padding: 0.5rem;
+    box-sizing: border-box;
+    min-height: 2.4rem;
+    border-radius: 0.2rem;
+    font-size: 1.02rem;
+    color: rgb(40, 40, 40);
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    /* word-break: break-all; */
+    /* https://www.runoob.com/w3cnote/css-en-cn-break-line.html */
+}
+
+.chatMsgContainer[role="self"][type="img"]>.chatMsgParent>.chatMsgBodyContent>img,
+.chatMsgContainer[role="other"][type="img"]>.chatMsgParent>.chatMsgBodyContent>img {
+    border-radius: 0.2rem;
+    max-width: 100%;
+    max-height: 12rem;
+}
+
+/* 通用转账消息 */
+
+.chatMsgContainer[role="self"][type="transfer"]>.chatMsgParent>.chatMsgBodyContent,
+.chatMsgContainer[role="other"][type="transfer"]>.chatMsgParent>.chatMsgBodyContent {
+    width: 14.7rem;
+    height: 4.8rem;
+    color: white;
+    position: relative;
+    border-radius: 0.2rem;
+}
+
+.chatMsgContainer[role="self"][type="transfer"]>.chatMsgParent>.chatMsgBodyContent>img,
+.chatMsgContainer[role="other"][type="transfer"]>.chatMsgParent>.chatMsgBodyContent>img {
+    height: 2.1rem;
+    position: absolute;
+    top: 0.7rem;
+    left: 0.8rem;
+}
+
+.chatMsgContainer[role="self"][type="transfer"]>.chatMsgParent>.chatMsgBodyContent>.money,
+.chatMsgContainer[role="other"][type="transfer"]>.chatMsgParent>.chatMsgBodyContent>.money {
+    position: absolute;
+    top: 0.7rem;
+    left: 3.3rem;
+    font-weight: 500;
+    font-size: 1rem;
+    font-family: WeChatSansStd-Bold;
+}
+
+.chatMsgContainer[role="self"][type="transfer"]>.chatMsgParent>.chatMsgBodyContent>.remark,
+.chatMsgContainer[role="other"][type="transfer"]>.chatMsgParent>.chatMsgBodyContent>.remark {
+    width: 10.5rem;
+    position: absolute;
+    top: 1.7rem;
+    left: 3.3rem;
+    font-size: 0.78rem;
+}
+
+.chatMsgContainer[role="self"][type="transfer"]>.chatMsgParent>.chatMsgBodyContent>.line,
+.chatMsgContainer[role="other"][type="transfer"]>.chatMsgParent>.chatMsgBodyContent>.line {
+    position: absolute;
+    top: 3.5rem;
+    left: 0.8rem;
+    width: 13rem;
+    height: 0.01rem;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.chatMsgContainer[role="self"][type="transfer"]>.chatMsgParent>.chatMsgBodyContent>.bottom,
+.chatMsgContainer[role="other"][type="transfer"]>.chatMsgParent>.chatMsgBodyContent>.bottom {
+    position: absolute;
+    top: 3.7rem;
+    left: 0.8rem;
+    font-size: 0.62rem;
+}
+
+/* 视频通话、语音通话消息 */
+
+.chatMsgContainer[role="self"][type="videoCall"]>.chatMsgParent>.chatMsgBodyContent,
+.chatMsgContainer[role="other"][type="videoCall"]>.chatMsgParent>.chatMsgBodyContent,
+.chatMsgContainer[role="self"][type="voiceCall"]>.chatMsgParent>.chatMsgBodyContent,
+.chatMsgContainer[role="other"][type="voiceCall"]>.chatMsgParent>.chatMsgBodyContent {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.chatMsgContainer[role="self"][type="videoCall"]>.chatMsgParent>.chatMsgBodyContent>img,
+.chatMsgContainer[role="other"][type="videoCall"]>.chatMsgParent>.chatMsgBodyContent>img,
+.chatMsgContainer[role="self"][type="voiceCall"]>.chatMsgParent>.chatMsgBodyContent>img,
+.chatMsgContainer[role="other"][type="voiceCall"]>.chatMsgParent>.chatMsgBodyContent>img {
+    width: auto;
+    height: 1.05rem;
+    margin: 0 0.4rem;
+}
+
+/* 视频通话、语音通话消息-对方 */
+
+.chatMsgContainer[role="other"][type="videoCall"]>.chatMsgParent>.chatMsgBodyContent>img,
+.chatMsgContainer[role="other"][type="voiceCall"]>.chatMsgParent>.chatMsgBodyContent>img {
+    transform: rotateY(180deg);
+}
+
+/* 文件类型消息 */
+
+.chatMsgContainer[role="self"][type="file"]>.chatMsgParent,
+.chatMsgContainer[role="other"][type="file"]>.chatMsgParent {
+    width: 100%;
+}
+
+.chatMsgContainer[role="self"][type="file"]>.chatMsgParent>.chatMsgBodyContent,
+.chatMsgContainer[role="other"][type="file"]>.chatMsgParent>.chatMsgBodyContent {
+    width: 100%;
+    position: relative;
+    border-radius: 0.25rem;
+    background-color: white;
+}
+
+.chatMsgContainer[role="self"][type="file"]>.chatMsgParent>.chatMsgBodyContent>img,
+.chatMsgContainer[role="other"][type="file"]>.chatMsgParent>.chatMsgBodyContent>img {
+    width: 1.8rem;
+    position: absolute;
+    top: 1.2rem;
+    right: 1.4rem;
+}
+
+.chatMsgContainer[role="self"][type="file"]>.chatMsgParent>.chatMsgBodyContent>.name,
+.chatMsgContainer[role="other"][type="file"]>.chatMsgParent>.chatMsgBodyContent>.name {
+    max-width: 70%;
+    position: absolute;
+    top: 0.9rem;
+    left: 0.7rem;
+}
+
+.chatMsgContainer[role="self"][type="file"]>.chatMsgParent>.chatMsgBodyContent>.size,
+.chatMsgContainer[role="other"][type="file"]>.chatMsgParent>.chatMsgBodyContent>.size {
+    position: absolute;
+    top: 2.3rem;
+    left: 0.7rem;
+    font-size: 0.85rem;
+    color: #676767;
+}
+
+.chatMsgContainer[role="self"][type="file"]>.chatMsgParent>.chatMsgBodyContent>.remark,
+.chatMsgContainer[role="other"][type="file"]>.chatMsgParent>.chatMsgBodyContent>.remark {
+    position: absolute;
+    left: 0.7rem;
+    bottom: 0.35rem;
+    font-size: 0.75rem;
+    padding-top: 0.3rem;
+    width: 91%;
+    border-top: 0.6px solid var(--borderColor--gray1);
+    ;
+    color: #676767;
+}
+
+/* 消息侧面小三角 */
+
+.chatMsgContainer[role="self"]>.chatMsgParent>[triangle].chatMsgBodyContent::before,
+.chatMsgContainer[role="other"]>.chatMsgParent>[triangle].chatMsgBodyContent::before {
+    content: '';
+    width: 0.5rem;
+    height: 0.5rem;
+    position: absolute;
+    background-color: inherit;
+    top: 1rem;
+    transform: rotate(45deg);
+    border-top-right-radius: 0.1rem;
+}
+
+/* 引用消息 */
+
+.chatMsgContainer[role="self"][type="text"]>.chatMsgParent>.chatMsgCiteContent,
+.chatMsgContainer[role="other"][type="text"]>.chatMsgParent>.chatMsgCiteContent {
+    max-width: 100%;
+    word-wrap: break-word;
+    border-radius: 0.2rem;
+    box-sizing: border-box;
+    font-size: 0.82rem;
+    color: #717171;
+    background-color: #dfdfdf;
+    margin-top: 0.4rem;
+    padding: 0.4rem;
+    padding-bottom: 0.2rem;
+    line-height: 1.3rem;
+    position: relative;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+/* 自己消息 */
+
+.chatMsgContainer[role="self"] {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.chatMsgContainer[role="self"]>.avatar {
+    margin-right: 0.7rem;
+}
+
+.chatMsgContainer[role="self"]>.chatMsgParent {
+    margin-right: 0.7rem;
+    align-items: flex-end;
+}
+
+.chatMsgContainer[role="self"][type="text"]>.chatMsgParent>.chatMsgBodyContent,
+.chatMsgContainer[role="self"][type="videoCall"]>.chatMsgParent>.chatMsgBodyContent,
+.chatMsgContainer[role="self"][type="voiceCall"]>.chatMsgParent>.chatMsgBodyContent {
+    background-color: #95ec6a;
+}
+
+.chatMsgContainer[role="self"]>.chatMsgParent>[triangle].chatMsgBodyContent::before {
+    right: -0.25rem;
+    border-top-right-radius: 0.1rem;
+}
+
+/* 对方消息 */
+
+.chatMsgContainer[role="other"] {
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+}
+
+.chatMsgContainer[role="other"]>.avatar {
+    margin-left: 0.7rem;
+}
+
+.chatMsgContainer[role="other"]>.chatMsgParent {
+    margin-left: 0.7rem;
+    align-items: flex-start;
+}
+
+.chatMsgContainer[role="other"][type="text"]>.chatMsgParent>.chatMsgBodyContent,
+.chatMsgContainer[role="other"][type="videoCall"]>.chatMsgParent>.chatMsgBodyContent,
+.chatMsgContainer[role="other"][type="voiceCall"]>.chatMsgParent>.chatMsgBodyContent {
+    background-color: white;
+}
+
+.chatMsgContainer[role="other"]>.chatMsgParent>[triangle].chatMsgBodyContent::before {
+    left: -0.25rem;
+    border-bottom-left-radius: 0.1rem;
+}
+
+/* 系统消息 */
+
+.chatMsgContainer[role="sys"] {
+    text-align: center;
+    box-sizing: border-box;
+    padding: 0.75rem 0;
+}
+
+.chatMsgContainer[role="sys"]>.chatMsgParent>.chatMsgBodyContent {
+    display: inline-block;
+    border-radius: 0.1rem;
+    color: #7d7d7d;
+    padding: 0.18rem 0.33rem;
+}
+
+.chatMsgContainer[role="sys"][type="sysText"]>.chatMsgParent>.chatMsgBodyContent {
+    font-size: 0.8rem;
+}
+
+.chatMsgContainer[role="sys"][type="sysTime"]>.chatMsgParent>.chatMsgBodyContent {
+    font-size: 0.72rem;
+}
+
+/* 有背景图时 */
+
+.dialogueFrameFriendPage[chatBg]>.dialogueFrameFriendChatContainer>.chatMsgContainer[role="sys"]>.chatMsgParent>.chatMsgBodyContent,
+.dialogueFrameFriendPage[chatBg]>.dialogueFrameFriendChatContainer>.chatMsgContainer[role="self"]>.chatMsgParent>.chatMsgCiteContent,
+.dialogueFrameFriendPage[chatBg]>.dialogueFrameFriendChatContainer>.chatMsgContainer[role="other"]>.chatMsgParent>.chatMsgCiteContent {
+    color: #343434;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* 会话框-消息菜单栏 */
+
+.dialogueFrameFriendMsgMenu {
+    width: 23rem;
+    height: 4rem;
+    background-color: #4d4d4d;
+    position: absolute;
+    z-index: 5;
+    left: calc((100vw - 23rem) / 2);
+    border-radius: 0.2rem;
+    color: white;
+    display: none;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.dialogueFrameFriendMsgMenu>[option] {
+    width: 2rem;
+    text-align: center;
+    font-size: 0.7rem;
+}
+
+.dialogueFrameFriendMsgMenu>[option]>img {
+    height: 1.2rem;
+}

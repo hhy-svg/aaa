@@ -1,0 +1,109 @@
+.billingItemDetailsPage {
+    z-index: 100;
+    background-color: #ededed;
+    display: none;
+}
+
+.billingItemDetailsPageTop {
+    background-color: white;
+}
+
+.billingItemDetailsMain {
+    padding-top: 1.5rem;
+    padding-bottom: 2rem;
+    background-color: white;
+}
+
+.billingItemDetailsAvatar {
+    width: 3rem;
+    height: 3rem;
+    background-image: url(../../assets/img/avatar_role/default_avatar2.png);
+    border-radius: 50%;
+    margin-left: calc((100% - 3rem) / 2);
+}
+
+.billingItemDetailsTitle {
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.billingItemDetailsMoney {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 1.8rem;
+    font-family: WeChatSansSS-Medium;
+}
+
+.billingItemDetailsAttrList {
+    border-top: 0.5px solid var(--borderColor--gray1);
+    margin-top: 3rem;
+    padding-top: 1rem;
+    width: 82%;
+    margin-left: 9%;
+}
+
+.billingItemDetailsAttr {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: flex-start;
+}
+
+.billingItemDetailsAttr>.key {
+    width: 25%;
+    display: inline-block;
+    color: rgb(163, 163, 163);
+}
+
+.billingItemDetailsAttr>.value {
+    display: inline-block;
+    width: 73%;
+}
+
+.billingItemDetailsAttr>.value>.gray {
+    color: rgb(163, 163, 163);
+    margin-top: 0.3rem;
+}
+
+.billingItemDetailsBottom {
+    margin-top: 3rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #a0a0a0;
+}
+
+.billingItemDetailsServiceList {
+    background-color: white;
+    margin-top: 0.5rem;
+    padding-bottom: 1rem;
+    margin-bottom: 3rem;
+}
+
+.billingItemDetailsServiceTitle {
+    padding-top: 1rem;
+    margin-left: 9%;
+    font-size: 0.9rem;
+}
+
+.billingItemDetailsServiceBox {
+    border-top: 0.5px solid var(--borderColor--gray1);
+    margin-top: 1rem;
+    padding-top: 0.5rem;
+    width: 82%;
+    margin-left: 9%;
+    font-size: 0.9rem;
+}
+
+.billingItemDetailsServiceItem {
+    width: 47%;
+    box-sizing: border-box;
+    color: var(--textColor--blue2);
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    display: inline-block;
+}
+
+.billingItemDetailsServiceItem>img {
+    height: 1rem;
+    transform: translateY(0.15rem);
+}

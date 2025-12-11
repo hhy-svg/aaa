@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="./assets/img/officialAccounts/wxtd.png">
+    <meta name="theme-color" content="#07C160">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="仿微信">
+    <link rel="apple-touch-icon" href="./assets/img/officialAccounts/wxtd.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-store, must-revalidate">
+    <meta http-equiv="expires" content="Wed, 26 Feb 2002 11:21:57 GMT">
+    <title></title>
+</head>
+
+<body>
+    <!-- 应用 -->
+    <div id="app" style="display: none;">
+        <!-- 首页顶部 -->
+        <div class="homePageTop pageTop" display="flex">
+            <div class="left"></div>
+            <div class="homePageTopCenter center">微信</div>
+            <div class="right">
+                <img src="./assets/img/home_index/search.png">
+                <img src="./assets/img/home_index/more.png" toggle="homePageMoreMenu">
+            </div>
+        </div>
+
+        <!-- 首页-微信 -->
+        <div class="dialogueContainer"></div>
+
+        <!-- 首页-通讯录 -->
+        <div class="homeContactsPage">
+            <!-- 公共服务 -->
+            <div class="homeContactsCommonList iconTextContentList">
+                <div class="iconTextContent underline4">
+                    <img class="icon" src="./assets/img/home_contacts/xinpengyou.png?t=20250509">
+                    <span class="title">新的朋友</span>
+                </div>
+                <div class="iconTextContent underline4">
+                    <img class="icon" src="./assets/img/home_contacts/jinliaotian.png?t=20250509">
+                    <span class="title">仅聊天朋友</span>
+                </div>
+                <div class="iconTextContent underline4">
+                    <img class="icon" src="./assets/img/home_contacts/qunliao.png?t=20250509">
+                    <span class="title">群聊</span>
+                </div>
+                <div class="iconTextContent underline4">
+                    <img class="icon" src="./assets/img/home_contacts/biaoqian.png?t=20250509">
+                    <span class="title">标签</span>
+                </div>
+                <div class="iconTextContent underline4">
+                    <img class="icon" src="./assets/img/home_contacts/gongzhonghao.png?t=20250509">
+                    <span class="title">公众号</span>
+                </div>
+                <div class="iconTextContent underline4">
+                    <img class="icon" src="./assets/img/home_contacts/fuwuhao.png?t=20250509">
+                    <span class="title">服务号</span>
+                </div>
+                <div class="iconTextTitle">我的企业及企业联系人</div>
+                <div class="iconTextContent underline4">
+                    <img class="icon" src="./assets/img/home_contacts/qiyelianxiren.png?t=20250509">
+                    <span class="title">企业微信联系人</span>
+                </div>
+                <div class="iconTextContent underline4">
+                    <img class="icon" src="./assets/img/home_contacts/qiyetongzhi.png?t=20250509">
+                    <span class="title">企业微信通知</span>
+                </div>
+            </div>
+            <!-- 右侧导航栏 -->
+            <div class="homeContactsPageRightMenu"></div>
+            <!-- 右侧导航栏选中的当前字母 -->
+            <div class="homeContactsPageRightMenuLetter"></div>
+            <!-- 联系人列表 -->
+            <div class="homeContactsPersonList iconTextContentList"></div>
+        </div>
+
+        <!-- 首页-发现 -->
+        <div class="homeFindPage iconTextContentList">
+            <div class="iconTextContent underline3">
+                <img class="icon" src="./assets/img/home_find/friend.png">
+                <span class="title">朋友圈</span>
+                <img class="rightArrow" src="./assets/img/icon/rightArrow.png">
+            </div>
+            <div class="iconTextContent underline3 separate">
+                <img class="icon" src="./assets/img/home_find/video.png">
+                <span class="title">视频号</span>
+                <img class="rightArrow" src="./assets/img/icon/rightArrow.png">
+            </div>
+            <div class="iconTextContent underline3">
+                <img class="icon" src="./assets/img/home_find/zhibo.png">
+                <span class="title">直播</span>
+                <img class="rightArrow" src="./assets/img/icon/rightArrow.png">
+            </div>
+            <div class="iconTextContent underline3 separate">
+                <img class="icon" src="./assets/img/home_find/saoyisao.png">
+                <span class="title">扫一扫</span>
+                <img class="rightArrow" src="./assets/img/icon/rightArrow.png">
+            </div>
+            <div class="iconTextContent underline3">
+                <img class="icon" src="./assets/img/home_find/music.png">
+                <span class="title">听一听</span>
+                <img class="rightArrow" src="./assets/img/icon/rightArrow.png">
+            </div>
+            <div class="iconTextContent underline3 separate">
+                <img class="icon" src="./assets/img/home_find/look.png">
+                <span class="title">看一看</span>
+                <img class="rightArrow" src="./assets/img/icon/rightArrow.png">
+            </div>
+            <div class="iconTextContent underline3">
+                <img class="icon" src="./assets/img/home_find/souyisou.png">
+                <span class="title">搜一搜</span>
+                <img class="rightArrow" src="./assets/img/icon/rightArrow.png">
+            </div>
+            <div class="iconTextContent underline3 separate">
+                <img class="icon" src="./assets/img/home_find/nearby.png">
+                <span class="title">附近</span>
+                <img class="rightArrow" src="./assets/img/icon/rightArrow.png">
+            </div>
+            <div class="iconTextContent underline3 separate">
+                <img class="icon" src="./assets/img/home_find/shopping.png">
+                <span class="title">购物</span>
+                <img class="rightArrow" src="./assets/img/icon/rightArrow.png">
+            </div>
+            <div class="iconTextContent underline3">
+                <img class="icon" src="./assets/img/home_find/game.png">
+                <span class="title">游戏</span>
+                <img class="rightArrow" src="./assets/img/icon/rightArrow.png">
+            </div>
+            <div class="iconTextContent underline3 separate">
+                <img class="icon" src="./assets/img/home_find/xiaochengxu.png">
+                <span class="title">小程序</span>
+                <img class="rightArrow" src="./assets/img/icon/rightArrow.png">
+            </div>
+        </div>
+
+        <!-- 首页-我 -->
+        <div class="homeMyPage fullPage reservedTop">
+            <div class="homeMyPageBaseInfo zjfx">
+                <div class="homeMyPageAvatar avatar"></div>
+                <div class="homeMyPageName"></div>
+                <div class="homeMyPageWxId"></div>
+                <img class="homeMyPageQrCode" src="./assets/img/home_my/qr.png">
+                <img class="homeMyPageRightArrow" src="./assets/img/icon/rightArrow.png">
+                <div class="homeMyPageMoreSelfStatus">
+                    <img src="./assets/img/home_my/jia.png">
+                    <span>状态</span>
+                </div>
+                <div class="homeMyPageMoreOtherStatus">
+                    <img src="./assets/img/home_my/quan.png">
+                </div>
+            </div>
+            <div class="homeMyPageIconTextContentList iconTextContentList">
+                <div class="iconTextContent underline3" pageIn="myServicePage">
+                    <img class="icon" src="./assets/img/home_my/service.png">
+                    <span class="title">服务</span>
+                    <img class="rightArrow" src="./assets/img/icon/rightArrow.png">
+                </div>
+                <div class="iconTextContent underline3 separate">
+                    <img class="icon" src="./assets/img/home_my/collect.png">
+                    <span class="title">收藏</span>
+                    <img class="rightArrow" src="./assets/img/icon/rightArrow.png">
+                </div>
+                <div class="iconTextContent underline3">
+                    <img class="icon" src="./assets/img/home_my/pengyouquan.png">
+                    <span class="title">朋友圈</span>
+                    <img class="rightArrow" src="./assets/img/icon/rightArrow.png">
+                </div>
+                <div class="iconTextContent underline3">
+                    <img class="icon" src="./assets/img/home_my/shipinhao.png">
+                    <span class="title">视频号</span>
+                    <img class="rightArrow" src="./assets/img/icon/rightArrow.png">
+                </div>
+                <div class="iconTextContent underline3">
+                    <img class="icon" src="./assets/img/home_my/card.png">
+                    <span class="title">卡包</span>
+                    <img class="rightArrow" src="./assets/img/icon/rightArrow.png">
+                </div>
+                <div class="iconTextContent underline3">
+                    <img class="icon" src="./assets/img/home_my/biaoqing.png">
+                    <span class="title">表情</span>
+                    <img class="rightArrow" src="./assets/img/icon/rightArrow.png">
+                </div>
+                <div class="homeMyPageSetting iconTextContent underline3 separate">
+                    <img class="icon" src="./assets/img/home_my/shezhi.png">
+                    <span class="title">设置</span>
+                    <img class="rightArrow" src="./assets/img/icon/rightArrow.png">
+                </div>
+            </div>
+        </div>
+
+        <!-- 首页菜单 -->
+        <div class="homePageMoreMenu">
+            <div option="launchGroupChat" class="underline2">
+                <img src="./assets/img/home_index/msg.png">
+                <span>发起群聊</span>
+            </div>
+            <div option="addFriend" class="underline2">
+                <img src="./assets/img/home_index/add_friend.png">
+                <span>添加朋友</span>
+            </div>
+            <div option="scan" class="underline2">
+                <img src="./assets/img/home_index/scan.png">
+                <span>扫一扫</span>
+            </div>
+            <div option="receiptPayment" class="underline2">
+                <img src="./assets/img/home_index/sfk.png">
+                <span>收付款</span>
+            </div>
+        </div>
+
+        <!-- 首页导航栏 -->
+        <div class="homePageNav">
+            <div icon="wx" target="dialogueContainer">
+                <div class="homePageNavUnread unread"></div>
+                <img src="./assets/img/home_index/wx-on.png">
+                <div>微信</div>
+            </div>
+            <div icon="contacts" target="homeContactsPage">
+                <img src="./assets/img/home_index/contacts-off.png">
+                <div>通讯录</div>
+            </div>
+            <div icon="find" target="homeFindPage">
+                <img src="./assets/img/home_index/find-off.png">
+                <div>发现</div>
+            </div>
+            <div icon="my" target="homeMyPage">
+                <img src="./assets/img/home_index/my-off.png">
+                <div>我</div>
+            </div>
+        </div>
+
+        <!-- 会话框-好友 -->
+        <div class="dialogueFrameFriendPage fullPage">
+            <!-- 会话框-顶部 -->
+            <div class="dialogueFrameFriendTop pageTop">
+                <div class="left">
+                    <img src="./assets/img/icon/back.png" pageOut>
+                    <div class="dialogueFrameFriendTopUnread unread"></div>
+                </div>
+                <div class="dialogueFrameFriendTopCenter center"></div>
+                <div class="right">
+                    <img class="updateFriendInfo" src="./assets/img/icon/three-point.png">
+                </div>
+            </div>
+
+            <!-- 会话框-聊天背景图 -->
+            <div class="dialogueFrameFriendChatBgImage"></div>
+
+            <!-- 会话框-聊天列表 -->
+            <div class="dialogueFrameFriendChatContainer"></div>
+
+            <!-- 会话框-底部 -->
+            <div class="dialogueFrameFriendBottom">
+                <!-- 会话框-底部-消息输入框 -->
+                <div class="dialogueFrameFriendMsgOperate">
+                    <img src="./assets/img/dialogueFrameFriend/voice1.png" class="dialogueFrameFriendBottomVoice">
+                    <div class="dialogueFrameFriendMsgBox">
+                        <div class="dialogueFrameFriendMsgArea" contenteditable="true"></div>
+                        <div class="voiceRecognitionBtn"></div>
+                        <div class="dialogueFrameFriendMsgciteBox" display="flex">
+                            <span class="dialogueFrameFriendMsgcite"></span>
+                            <img class="hideDialogueFrameFriendMsgcite" hide="dialogueFrameFriendMsgciteBox" src="./assets/img/icon/b9r.png">
+                        </div>
+                    </div>
+                    <img src="./assets/img/dialogueFrameFriend/face1.png" class="dialogueFrameFriendBottomFace">
+                    <img src="./assets/img/dialogueFrameFriend/more2.png" class="dialogueFrameFriendBottomMore">
+                    <button class="dialogueFrameFriendBottomSendBtn">发送</button>
+                </div>
+                <!-- 会话框-底部-更多操作 -->
+                <div class="dialogueFrameFriendMoreOperate">
+                    <div class="swiper-wrapper">
+                        <div class="dialogueFrameFriendMoreOptionContainer swiper-slide">
+                            <div option="photos">
+                                <img src="./assets/img/dialogueFrameFriend/xiangce.png">
+                                <div>相册</div>
+                            </div>
+                            <div option="shoot">
+                                <img src="./assets/img/dialogueFrameFriend/paishe.png">
+                                <div>拍摄</div>
+                            </div>
+                            <div option="call">
+                                <img src="./assets/img/dialogueFrameFriend/shipin.png">
+                                <div>视频通话</div>
+                            </div>
+                            <div option="place">
+                                <img src="./assets/img/dialogueFrameFriend/weizhi.png">
+                                <div>位置</div>
+                            </div>
+                            <div class="transparentLine"></div>
+                            <div option="redPacket">
+                                <img src="./assets/img/dialogueFrameFriend/hongbao.png">
+                                <div>红包</div>
+                            </div>
+                            <div option="gift">
+                                <img src="./assets/img/dialogueFrameFriend/liwu.png">
+                                <div>礼物</div>
+                            </div>
+                            <div option="transfer">
+                                <img src="./assets/img/dialogueFrameFriend/zhuanzhang.png">
+                                <div>转账</div>
+                            </div>
+                            <div option="voiceInp">
+                                <img src="./assets/img/dialogueFrameFriend/yuyinshuru.png">
+                                <div>语音输入</div>
+                            </div>
+                        </div>
+                        <div class="dialogueFrameFriendMoreOptionContainer swiper-slide">
+                            <div option="collect">
+                                <img src="./assets/img/dialogueFrameFriend/wodeshoucang.png">
+                                <div>我的收藏</div>
+                            </div>
+                            <div option="card">
+                                <img src="./assets/img/dialogueFrameFriend/mingpian.png">
+                                <div>名片</div>
+                            </div>
+                            <div option="file">
+                                <img src="./assets/img/dialogueFrameFriend/wenjian.png">
+                                <div>文件</div>
+                            </div>
+                            <div option="music">
+                                <img src="./assets/img/dialogueFrameFriend/yinyue.png">
+                                <div>音乐</div>
+                            </div>
+                            <div class="transparentLine"></div>
+                            <div option="coupon">
+                                <img src="./assets/img/dialogueFrameFriend/kaquan.png">
+                                <div>卡券</div>
+                            </div>
+                            <div option="coupon" class="visibilityHide">
+                                <img src="./assets/img/dialogueFrameFriend/kaquan.png">
+                                <div>卡券</div>
+                            </div>
+                            <div option="coupon" class="visibilityHide">
+                                <img src="./assets/img/dialogueFrameFriend/kaquan.png">
+                                <div>卡券</div>
+                            </div>
+                            <div option="coupon" class="visibilityHide">
+                                <img src="./assets/img/dialogueFrameFriend/kaquan.png">
+                                <div style="font-family: WeChatSansSS-Medium;">卡券</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 分页器 -->
+                    <div class="dialogueFrameFriendMoreOperatePagination swiper-pagination"></div>
+                </div>
+            </div>
+
+            <!-- 会话框-消息菜单栏 -->
+            <div class="dialogueFrameFriendMsgMenu" display="flex">
+                <div option="copy">
+                    <img src="./assets/img/dialogueFrameFriend/fuzhi.png">
+                    <div>复制</div>
+                </div>
+                <div option="update">
+                    <img src="./assets/img/dialogueFrameFriend/bianji.png">
+                    <div>编辑</div>
+                </div>
+                <div option="remove">
+                    <img src="./assets/img/dialogueFrameFriend/shanchu.png">
+                    <div>删除</div>
+                </div>
+                <div option="cite">
+                    <img src="./assets/img/dialogueFrameFriend/yinyong.png">
+                    <div>引用</div>
+                </div>
+                <div option="sort">
+                    <img src="./assets/img/dialogueFrameFriend/paixv.png">
+                    <div>排序</div>
+                </div>
+                <div option="role">
+                    <img src="./assets/img/dialogueFrameFriend/qiehuanjuese.png">
+                    <div>切换角色</div>
+                </div>
+                <div option="sysTime">
+                    <img src="./assets/img/dialogueFrameFriend/time.png">
+                    <div>插入时间</div>
+                </div>
+                <div option="sysText">
+                    <img src="./assets/img/dialogueFrameFriend/sysText.png">
+                    <div>系统消息</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 对话框里的转账页面（点击转账后展示出来的页面） -->
+        <div class="dialogueFrameTransferPage fullPage">
+            <!-- 转账页面-顶部 -->
+            <div class="pageTop">
+                <div class="left"><img src="./assets/img/icon/back.png" pageOut></div>
+                <div class="center"></div>
+                <div class="right"></div>
+            </div>
+            <!-- 转账页面-内容 -->
+            <div class="dialogueFrameTransferContent">
+                <img src="./assets/img/dialogueFrameFriend/wait.png" class="dialogueFrameTransferIcon">
+                <div class="dialogueFrameTransferTitle"></div>
+                <div class="dialogueFrameTransferMoney"></div>
+                <div class="dialogueFrameTransferDetails">
+                    <div class="remark" display="flex">
+                        <span class="key">转账说明</span>
+                        <span class="dialogueFrameTransferDetailsRemark value">备注哈哈哈哈</span>
+                    </div>
+                    <div class="transferTime" display="flex">
+                        <span class="key">转账时间</span>
+                        <span class="dialogueFrameTransferDetailsTransferTime value"></span>
+                    </div>
+                    <div class="proceedsTime" display="flex">
+                        <span class="key">收款时间</span>
+                        <span class="dialogueFrameTransferDetailsProceedsTime value"></span>
+                    </div>
+                </div>
+                <div class="dialogueFrameTransferHint">
+                    <div class="icon"></div>
+                    <div class="hint1">零钱通 七日年化1.37%</div>
+                    <div class="hint2">给小金库再添一笔</div>
+                    <div class="into">转入</div>
+                </div>
+                <div class="confirmTransferProceeds">收款</div>
+                <div class="confirmTransferBack">1天内未确认，将退还给对方。<span>退还</span></div>
+            </div>
+        </div>
+
+        <!-- 发起转账 -->
+        <div class="initiateTransferPage fullPage">
+            <!-- 发起转账-顶部 -->
+            <div class="pageTop">
+                <div class="left"><img src="./assets/img/icon/back.png" pageOut></div>
+                <div class="center"></div>
+                <div class="right"></div>
+            </div>
+            <!-- 发起转账-收款方信息 -->
+            <div class="transferPayeeInfo zjfx">
+                <div class="transferPayeeInfoTo"></div>
+                <div class="transferPayeeInfoWx"></div>
+                <div class="transferPayeeInfoAvatar avatar"></div>
+            </div>
+            <!-- 填写金额 -->
+            <div class="writeTransferMoney zjfx">
+                <div class="zzje">转账金额</div>
+                <div class="zzjeibox">
+                    <span class="rmbMark">￥</span>
+                    <input type="text" inputmode="none" class="transferMoneyInp" value="12.8">
+                    <div class="transferMoneyUnit"></div>
+                </div>
+                <div class="showAddTransferRemarkBox"></div>
+                <!-- 填写金额的自制键盘 -->
+                <div class="transferKeyboard" display="flex">
+                    <div keyboardValue="1">1</div>
+                    <div keyboardValue="2">2</div>
+                    <div keyboardValue="3">3</div>
+                    <div class="transferKeyboardBs"></div>
+
+                    <div keyboardValue="4">4</div>
+                    <div keyboardValue="5">5</div>
+                    <div keyboardValue="6">6</div>
+                    <div class="visibilityHide"></div>
+
+                    <div keyboardValue="7">7</div>
+                    <div keyboardValue="8">8</div>
+                    <div keyboardValue="9">9</div>
+                    <div class="visibilityHide"></div>
+
+                    <div keyboardValue="0" style="width: 47%;">0</div>
+                    <div keyboardValue=".">.</div>
+                    <div class="visibilityHide"></div>
+                    <div class="transferKeyboardAffirm">转账</div>
+                </div>
+            </div>
+            <!-- 添加转账说明 -->
+            <div class="addTransferRemarkBox fullPage">
+                <div class="addTransferRemark">
+                    <div class="addTransferRemarkTitle">转账说明</div>
+                    <input type="text" class="transferRemarkInp" placeholder="收付款双方可见，最多60个字。">
+                    <div class="addTransferRemarkOperate">
+                        <div class="transferRemarkCancel" hide="addTransferRemarkBox">取消</div>
+                        <div class="transferRemarkAffirm">确定</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 调用支付页面 -->
+        <div class="invokePaymentPage fullPage">
+            <!-- 支付加载中 -->
+            <div class="payLoading" display="flex">
+                <img class="payLogo" src="./assets/img/invokePayment/payLogo.png">
+                <div class="title">微信支付</div>
+                <div class="dynamicLoading"></div>
+            </div>
+            <!-- 预支付 -->
+            <div class="prepayment zjfx">
+                <img pageOut class="closePrepayment" src="./assets/img/invokePayment/close1.png">
+                <div class="togglePayVerifyWay">使用密码</div>
+                <div class="prepaymentTitle"></div>
+                <div class="prepaymentMoney"></div>
+                <div class="togglePayWayContainer">
+                    <div class="togglePayWay">
+                        <div class="fukuanfangshi">付款方式</div>
+                        <div class="genggai">
+                            <span>更改</span>
+                            <img src="./assets/img/icon/agz.png">
+                        </div>
+                    </div>
+                    <div class="currentPayWay">
+                        <div class="currentPayWayTitle">
+                            <img class="currentPayWayLogo" src="./assets/img/invokePayment/looseChange.png">
+                            <span class="currentPayWayName">零钱</span>
+                        </div>
+                        <img class="currentPayWayUsable" src="./assets/img/icon/bqw.png">
+                    </div>
+                </div>
+                <div class="confirmPayment">支付</div>
+            </div>
+            <!-- 支付前的指纹验证 -->
+            <div class="fingerprintPayVerify zjfx">
+                <img pageOut class="closeFingerprintPayVerify" src="./assets/img/invokePayment/close1.png">
+                <div class="fingerprintPayVerifyTitle">请验证指纹</div>
+                <img class="fingerprintIcon" src="./assets/img/invokePayment/fingerprint.png">
+            </div>
+            <!-- 支付结果页面 -->
+            <div class="paymentResult">
+                <div class="paymentResultTop">
+                    <img src="./assets/img/invokePayment/payLogo2.png">
+                    <span>支付成功</span>
+                </div>
+                <div class="paymentResultText"></div>
+                <div class="paymentResultMoney"></div>
+                <div class="closePaymentResult" pageOut>完成</div>
+            </div>
+        </div>
+
+        <!-- 添加、编辑、删除任何信息 -->
+        <div class="curdAnythingPage fullPage" display="flex">
+            <div class="curdAnythingTitle"></div>
+            <div class="avatarBox">
+                <span class="label" label="头像"></span>
+                <div class="avatar value avatar upload" reset="reset" defaultValue="./assets/img/avatar_role/default_nor_avatar.png"></div>
+            </div>
+            <div class="bgImageBox">
+                <span class="label" label="背景"></span>
+                <div class="bgImage value bgImage upload" reset="reset"></div>
+            </div>
+            <div class="sexBox">
+                <span class="label" label="性别"></span>
+                <div class="sex value bgImage" defaultValue="1"></div>
+            </div>
+            <div class="imageBox">
+                <span class="label" label="图片"></span>
+                <img class="image value bgImage upload" src="./assets/img/imgDefault.png">
+            </div>
+            <div class="sysTimeBox">
+                <span class="label" label="系统时间"></span>
+                <div class="sysTime value time"></div>
+            </div>
+            <div class="wxIdBox">
+                <span class="label" label="微信号"></span>
+                <input class="wxId value" type="text">
+            </div>
+            <div class="nameBox">
+                <span class="label" label="名称"></span>
+                <input class="name value" type="text">
+            </div>
+            <div class="addressBox">
+                <span class="label" label="地区"></span>
+                <input class="address value" type="text">
+            </div>
+            <div class="signatureBox">
+                <span class="label" label="个性签名"></span>
+                <input class="signature value" type="text">
+            </div>
+            <div class="realNameBox">
+                <span class="label" label="真实名字"></span>
+                <input class="realName value" type="text">
+            </div>
+            <div class="unreadBox">
+                <span class="label" label="未读消息"></span>
+                <input class="unread value" type="number">
+            </div>
+            <div class="topBox">
+                <span class="label" label="是否置顶好友"></span>
+                <div class="top value" option="top"></div>
+            </div>
+            <div class="AIChatBox">
+                <span class="label" label="智能AI聊天"></span>
+                <div class="AIChat value" option="AIChat"></div>
+            </div>
+            <div class="bodyMsgBox">
+                <span class="label" label="主体消息"></span>
+                <div class="bodyMsg value" contenteditable="true"></div>
+            </div>
+            <div class="citeMsgBox">
+                <span class="label" label="引用消息"></span>
+                <input class="citeMsg value" type="text">
+            </div>
+            <div class="moneyBox">
+                <span class="label" label="金额"></span>
+                <input class="money value" type="number">
+            </div>
+            <div class="sizeBox">
+                <span class="label" label="大小"></span>
+                <input class="size value" type="number">
+            </div>
+            <div class="fileUnitBox">
+                <span class="label" label="文件大小单位"></span>
+                <div class="fileUnit value" option="fileUnit"></div>
+            </div>
+            <div class="fileTypeBox">
+                <span class="label" label="文件类型"></span>
+                <div class="fileType value" option="fileType"></div>
+            </div>
+            <div class="remarkBox">
+                <span class="label" label="备注"></span>
+                <input class="remark value" type="text">
+            </div>
+            <div class="transferStateBox">
+                <span class="label" label="转账状态"></span>
+                <div class="transferState value" option="transferState"></div>
+            </div>
+            <div class="transferTimeBox">
+                <span class="label" label="转账时间"></span>
+                <div class="transferTime value time"></div>
+            </div>
+            <div class="proceedsTimeBox">
+                <span class="label" label="收款时间"></span>
+                <div class="proceedsTime value time"></div>
+            </div>
+            <div class="looseChangeBox">
+                <span class="label" label="零钱"></span>
+                <input class="looseChange value" type="number">
+            </div>
+            <div class="changeCardBox">
+                <span class="label" label="零钱通"></span>
+                <input class="changeCard value" type="number">
+            </div>
+            <div class="yieldRateBox">
+                <span class="label" label="收益率"></span>
+                <input class="yieldRate value" type="number">
+            </div>
+
+            <!-- 删除操作 -->
+            <div class="removeAnything" display="flex"></div>
+            <!-- 添加或更新操作 -->
+            <div class="operate">
+                <div class="curdCancel" pageOut>取消</div>
+                <div class="curdConfirm">确认</div>
+            </div>
+        </div>
+
+        <!-- 服务页面 -->
+        <div class="myServicePage fullPage">
+            <div class="pageTop sticky" display="flex">
+                <div class="left">
+                    <img src="./assets/img/icon/back.png" pageOut>
+                </div>
+                <div class="center">服务</div>
+                <div class="right">
+                    <img src="./assets/img/icon/three-point.png">
+                </div>
+            </div>
+            <div class="twoMainService">
+                <div class="receiptPayService">
+                    <img src="./assets/img/my_service/shoufukuan.png">
+                    <div class="title">收付款</div>
+                </div>
+                <div class="walletService" pageIn="myWalletPage">
+                    <img src="./assets/img/my_service/qianbao.png">
+                    <div class="title">钱包</div>
+                    <div class="looseChange"></div>
+                </div>
+            </div>
+            <div class="serviceContainer">
+                <div class="title">金融理财</div>
+                <div class="services">
+                    <div class="service">
+                        <img src="./assets/img/my_service/xinyongkahuankuan.png">
+                        <div>信用卡还款</div>
+                    </div>
+                    <div class="service">
+                        <img src="./assets/img/my_service/licaitong.png">
+                        <div>理财通</div>
+                    </div>
+                    <div class="service">
+                        <img src="./assets/img/my_service/baoxianfuwu.png">
+                        <div>保险服务</div>
+                    </div>
+                    <div class="service visibilityHide"></div>
+                </div>
+            </div>
+            <div class="serviceContainer">
+                <div class="title">生活服务</div>
+                <div class="services">
+                    <div class="service">
+                        <img src="./assets/img/my_service/shoujichongzhi.png">
+                        <div>手机充值</div>
+                    </div>
+                    <div class="service">
+                        <img src="./assets/img/my_service/shenghuojiaofei.png">
+                        <div>生活缴费</div>
+                    </div>
+                    <div class="service">
+                        <img src="./assets/img/my_service/Qbichongzhi.png">
+                        <div>Q币充值</div>
+                    </div>
+                    <div class="service">
+                        <img src="./assets/img/my_service/chengshifuwu.png">
+                        <div>城市服务</div>
+                    </div>
+                    <div class="service">
+                        <img src="./assets/img/my_service/tengxungongyi.png">
+                        <div>腾讯公益</div>
+                    </div>
+                    <div class="service">
+                        <img src="./assets/img/my_service/yiliaojiankang.png">
+                        <div>医疗健康</div>
+                    </div>
+                    <div class="service visibilityHide"></div>
+                    <div class="service visibilityHide"></div>
+                </div>
+            </div>
+            <div class="serviceContainer">
+                <div class="title">交通出行</div>
+                <div class="services">
+                    <div class="service">
+                        <img src="./assets/img/my_service/chuxingfuwu.png">
+                        <div>出行服务</div>
+                    </div>
+                    <div class="service">
+                        <img src="./assets/img/my_service/huochepiao.png">
+                        <div>火车票机票</div>
+                    </div>
+                    <div class="service">
+                        <img src="./assets/img/my_service/didichuxing.png">
+                        <div>滴滴出行</div>
+                    </div>
+                    <div class="service">
+                        <img src="./assets/img/my_service/jiudianminsu.png">
+                        <div>酒店民宿</div>
+                    </div>
+                </div>
+            </div>
+            <div class="serviceContainer">
+                <div class="title">购物消费</div>
+                <div class="services">
+                    <div class="service">
+                        <img src="./assets/img/my_service/pingpaifaxian.png">
+                        <div>品牌发现</div>
+                    </div>
+                    <div class="service">
+                        <img src="./assets/img/my_service/JDgouwu.png">
+                        <div>京东购物</div>
+                    </div>
+                    <div class="service">
+                        <img src="./assets/img/my_service/meituanwaimai.png">
+                        <div>美团外卖</div>
+                    </div>
+                    <div class="service">
+                        <img src="./assets/img/my_service/dianyingyanchu.png">
+                        <div>猫眼电影</div>
+                    </div>
+                    <div class="service">
+                        <img src="./assets/img/my_service/meituantejia.png">
+                        <div>美团团购</div>
+                    </div>
+                    <div class="service">
+                        <img src="./assets/img/my_service/PDD.png">
+                        <div>拼多多</div>
+                    </div>
+                    <div class="service">
+                        <img src="./assets/img/my_service/weipinghui.png">
+                        <div>唯品会特卖</div>
+                    </div>
+                    <div class="service">
+                        <img src="./assets/img/my_service/zhuanzhuan.png">
+                        <div>转转二手</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 钱包页面 -->
+        <div class="myWalletPage fullPage">
+            <div class="pageTop" display="flex">
+                <div class="left">
+                    <img src="./assets/img/icon/back.png" pageOut>
+                </div>
+                <div class="center">钱包</div>
+                <div class="right">
+                    <span class="showBillingItemListPage">账单</span>
+                </div>
+            </div>
+            <div class="myWalletPageIconTextContentList iconTextContentList">
+                <div class="myWalletPageLooseChange iconTextContent underline3">
+                    <img class="icon" src="./assets/img/my_wallet/looseChange.png">
+                    <span class="title">零钱</span>
+                    <div class="looseChange"></div>
+                    <img class="rightArrow" src="./assets/img/icon/rightArrow.png">
+                </div>
+                <div class="iconTextContent underline3">
+                    <img class="icon" src="./assets/img/my_wallet/manage.png">
+                    <span class="title">经营账户</span>
+                    <img class="rightArrow" src="./assets/img/icon/rightArrow.png">
+                </div>
+                <div class="myWalletPageChangeCard iconTextContent underline3">
+                    <img class="icon" src="./assets/img/my_wallet/changeCard.png">
+                    <span class="title">零钱通</span>
+                    <div class="yieldRate"></div>
+                    <div class="changeCard"></div>
+                    <img class="rightArrow" src="./assets/img/icon/rightArrow.png">
+                </div>
+                <div class="iconTextContent underline3">
+                    <img class="icon" src="./assets/img/my_wallet/bankCard.png">
+                    <span class="title">银行卡</span>
+                    <img class="rightArrow" src="./assets/img/icon/rightArrow.png">
+                </div>
+                <div class="iconTextContent underline3">
+                    <img class="icon" src="./assets/img/my_wallet/relativesCard.png">
+                    <span class="title">亲属卡</span>
+                    <img class="rightArrow" src="./assets/img/icon/rightArrow.png">
+                </div>
+                <div class="iconTextContent underline3 separate">
+                    <img class="icon" src="./assets/img/my_wallet/figure_rmb.png">
+                    <span class="title">数字人民币</span>
+                    <img class="rightArrow" src="./assets/img/icon/rightArrow.png">
+                </div>
+                <div class="iconTextContent underline3 separate">
+                    <img class="icon" src="./assets/img/my_wallet/payPoints.png">
+                    <span class="title">支付分</span>
+                    <img class="rightArrow" src="./assets/img/icon/rightArrow.png">
+                </div>
+                <div class="iconTextContent underline3">
+                    <img class="icon" src="./assets/img/my_wallet/consumerProtection.png">
+                    <span class="title">消费者保护</span>
+                    <img class="rightArrow" src="./assets/img/icon/rightArrow.png">
+                </div>
+            </div>
+            <div class="myWalletPageBottom">
+                <span class="identityInfo">身份信息</span>
+                <span class="verticalBar">|</span>
+                <span class="paymentSettings">支付设置</span>
+            </div>
+        </div>
+
+        <!-- 个人信息页面 -->
+        <div class="personalInfoPage fullPage" style="display: none;">
+            <div class="pageTop" display="flex">
+                <div class="left">
+                    <img src="./assets/img/icon/back.png" pageOut>
+                </div>
+                <div class="center">个人信息</div>
+                <div class="right"></div>
+            </div>
+            <div class="personalInfoPageContent">
+                <div class="infoNotice">
+                    根据人民银行相关规定，你需要完善以下所有个人信息，以正常使用微信支付相关功能。微信支付持续保障你的个人信息隐私和安全。
+                </div>
+                
+                <div class="sectionTitle">证件信息</div>
+                
+                <div class="iconTextContentList">
+                    <div class="iconTextContent underline3">
+                        <span class="title">姓名</span>
+                        <span class="value userName">*田</span>
+                    </div>
+                    <div class="iconTextContent underline3">
+                        <span class="title">性别</span>
+                        <span class="value">男</span>
+                    </div>
+                    <div class="iconTextContent underline3">
+                        <span class="title">国籍</span>
+                        <span class="value">中国</span>
+                    </div>
+                    <div class="iconTextContent underline3">
+                        <span class="title">证件类型</span>
+                        <span class="value">居民身份证</span>
+                    </div>
+                    <div class="iconTextContent underline3">
+                        <span class="title">证件号</span>
+                        <span class="value idNumber">3****************9</span>
+                    </div>
+                    <div class="iconTextContent underline3 clickable">
+                        <span class="title">证件有效期</span>
+                        <div class="rightContent">
+                            <span class="value">2023-05-10 至 2043-05-10</span>
+                            <img class="rightArrow" src="./assets/img/icon/rightArrow.png">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sectionTitle">其他信息</div>
+                
+                <div class="iconTextContentList">
+                    <div class="iconTextContent underline3 clickable">
+                        <span class="title">职业类别</span>
+                        <div class="rightContent">
+                            <span class="value">生产制造、开采、施工、运输相关人员</span>
+                            <img class="rightArrow" src="./assets/img/icon/rightArrow.png">
+                        </div>
+                    </div>
+                    <div class="iconTextContent underline3 clickable">
+                        <span class="title">地址</span>
+                        <div class="rightContent">
+                            <span class="value incomplete">待完善</span>
+                            <img class="rightArrow" src="./assets/img/icon/rightArrow.png">
+                        </div>
+                    </div>
+                    <div class="iconTextContent underline3 clickable">
+                        <span class="title">手机号</span>
+                        <div class="rightContent">
+                            <span class="value phoneNumber">158******25</span>
+                            <img class="rightArrow" src="./assets/img/icon/rightArrow.png">
+                        </div>
+                    </div>
+                    <div class="iconTextContent underline3 clickable">
+                        <span class="title">人脸识别</span>
+                        <div class="rightContent">
+                            <span class="value">已完善</span>
+                            <img class="rightArrow" src="./assets/img/icon/rightArrow.png">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="updateRealNameBtn">更新实名</div>
+            </div>
+        </div>
+
+        <!-- 身份信息页面 -->
+        <div class="identityInfoPage fullPage" style="display: none;">
+            <div class="pageTop" display="flex">
+                <div class="left">
+                    <img src="./assets/img/icon/back.png" pageOut>
+                </div>
+                <div class="center">身份信息</div>
+                <div class="right"></div>
+            </div>
+            <div class="identityInfoPageContent iconTextContentList">
+                <div class="iconTextContent underline3">
+                    <span class="title">实名认证状态</span>
+                    <span class="status realNameStatus">已认证</span>
+                </div>
+                <div class="iconTextContent underline3 personalInfo">
+                    <span class="title">个人信息</span>
+                    <span class="incomplete">1项信息待完善</span>
+                    <span class="redDot"></span>
+                    <img class="rightArrow" src="./assets/img/icon/rightArrow.png">
+                </div>
+                <div class="iconTextContent underline3">
+                    <span class="title">证件照片</span>
+                    <span class="status">已上传</span>
+                </div>
+                <div class="iconTextContent separate">
+                    <span class="title">更新实名</span>
+                    <img class="rightArrow" src="./assets/img/icon/rightArrow.png">
+                </div>
+            </div>
+            <div class="identityInfoPageBottom">
+                <div class="customerService">客服中心</div>
+                <div class="serviceNote">本服务由财付通提供</div>
+            </div>
+        </div>
+
+        <!-- 账单列表页面 -->
+        <div class="billingItemListPage fullPage">
+            <div class="billingItemListPageTop pageTop" display="flex">
+                <div class="left">
+                    <img src="./assets/img/icon/brf.png" pageOut>
+                </div>
+                <div class="billingItemListPageCenter center">账单</div>
+                <div class="billingItemListPageRight right">
+                    <img src="./assets/img/icon/three-point.png">
+                </div>
+            </div>
+            <div class="billingProgressBar"></div>
+            <div class="billingItemListStatistics" display="flex">
+                <div class="billingAllItemList">全部账单</div>
+                <div class="billingStatisticsItemList">
+                    <span>收支统计</span>
+                    <img src="./assets/img/icon/bre.webp">
+                </div>
+            </div>
+            <div class="billingItemListContainer"></div>
+            <!-- crud账单页面 -->
+            <div class="crudBillingItem">
+                <div class="crudBillingHeader"></div>
+                <div class="crudBillingAvatar avatar"></div>
+                <input type="text" class="crudBillingTitle" placeholder="账单标题">
+                <input type="number" class="crudBillingMoney" placeholder="金额">
+
+                <div class="addBillingAttr">点此添加账单属性</div>
+                <div class="crudBillingAttrList"></div>
+
+                <div class="crudBillingServiceListContainer">
+                    <div class="crudBillingServiceTitle">账单服务选项：</div>
+                    <div billingServiceType="dddyyh">
+                        <img src="./assets/img/billingDetails/dddyyh.png">
+                        <span>对订单有疑惑</span>
+                    </div>
+                    <div billingServiceType="zcshdjy">
+                        <img src="./assets/img/billingDetails/zcshdjy.png">
+                        <span>在此商户的交易</span>
+                    </div>
+                    <div billingServiceType="dwdltwz">
+                        <img src="./assets/img/billingDetails/dwdltwz.png">
+                        <span>定位到聊天位置</span>
+                    </div>
+                    <div billingServiceType="sqzzdzpz">
+                        <img src="./assets/img/billingDetails/sqzzdzpz.png">
+                        <span>申请转账电子凭证</span>
+                    </div>
+                    <div billingServiceType="ckwlzz">
+                        <img src="./assets/img/billingDetails/ckwlzz.png">
+                        <span>查看往来转账</span>
+                    </div>
+                </div>
+                <div class="crudBillingOperate">
+                    <span class="crudBillingRemove">删除</span>
+                    <span class="crudBillingCancel" hide="crudBillingItem">取消</span>
+                    <span class="crudBillingConfirm">确认</span>
+                </div>
+            </div>
+            <!-- 选择日期查询 -->
+            <div class="queryBillingByDateContainer">
+                <div class="queryBillingByDateMenu">
+                    <div class="queryBillingByDateMenuHeader">
+                        <div class="active">选择月份</div>
+                        <div>选择时间段</div>
+                    </div>
+                    <div class="billingDateSlideContainer">
+                        <div class="billingDateSlideShade">
+                            <div class="billingDateSlideActive"></div>
+                        </div>
+                        <div class="billingDateYearSlide">
+                            <div class="billingDateYearSwiperWrapper swiper-wrapper"></div>
+                        </div>
+                        <div class="billingDateMonthSlide">
+                            <div class="billingDateMonthSwiperWrapper swiper-wrapper"></div>
+                        </div>
+                    </div>
+                    <div class="billingDateSlideOperate">
+                        <div class="billingDateSlideCancel" hide="queryBillingByDateContainer">取消</div>
+                        <div class="billingDateSlideConfirm">确定</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 账单详情页面 -->
+        <div class="billingItemDetailsPage fullPage">
+            <div class="billingItemDetailsPageTop pageTop" display="flex">
+                <div class="left">
+                    <img src="./assets/img/icon/brf.png" pageOut>
+                </div>
+                <div class="center"></div>
+                <div class="right"></div>
+            </div>
+            <div class="billingItemDetailsMain">
+                <div class="billingItemDetailsAvatar avatar"></div>
+                <div class="billingItemDetailsTitle"></div>
+                <div class="billingItemDetailsMoney"></div>
+                <div class="billingItemDetailsAttrList"></div>
+            </div>
+            <div class="billingItemDetailsServiceList">
+                <div class="billingItemDetailsServiceTitle">账单服务</div>
+                <div class="billingItemDetailsServiceBox"></div>
+            </div>
+            <div class="billingItemDetailsBottom">本服务由财付通提供</div>
+        </div>
+
+        <!-- 总设置页面 -->
+        <div class="masterSettingPage fullPage">
+            <div class="pageTop" display="flex">
+                <div class="left">
+                    <img src="./assets/img/icon/back.png" pageOut>
+                </div>
+                <div class="center">设置</div>
+                <div class="right"></div>
+            </div>
+            <div class="masterSettingPageIconTextContentList iconTextContentList">
+                <div class="masterSettingUpdateSelfInfo iconTextContent underline3">
+                    <img class="icon" src="./assets/img/master_setting/bjxx.png">
+                    <span class="title">编辑自己信息</span>
+                    <img class="rightArrow" src="./assets/img/icon/rightArrow.png">
+                </div>
+                <div class="masterSettingContact iconTextContent underline3">
+                    <img class="icon" src="./assets/img/master_setting/lxkf.png">
+                    <span class="title">联系客服</span>
+                    <img class="rightArrow" src="./assets/img/icon/rightArrow.png">
+                </div>
+                <div class="masterSettingCustomize iconTextContent underline3">
+                    <img class="icon" src="./assets/img/master_setting/customize.png">
+                    <span class="title">定做更多页面</span>
+                    <img class="rightArrow" src="./assets/img/icon/rightArrow.png">
+                </div>
+                <div class="masterSettingAutoReply iconTextContent underline3">
+                    <img class="icon" src="./assets/img/master_setting/autoReply.png">
+                    <span class="title">消息自动回复</span>
+                    <img class="rightArrow" src="./assets/img/icon/rightArrow.png">
+                </div>
+                <div class="masterSettingDownloadApp iconTextContent underline3">
+                    <img class="icon" src="./assets/img/master_setting/downloadApp.png">
+                    <span class="title">软件APP下载</span>
+                    <img class="rightArrow" src="./assets/img/icon/rightArrow.png">
+                </div>
+                <div class="masterSettingFeedback iconTextContent underline3">
+                    <img class="icon" src="./assets/img/master_setting/feedback.png">
+                    <span class="title">我要反馈</span>
+                    <img class="rightArrow" src="./assets/img/icon/rightArrow.png">
+                </div>
+                <div class="masterSettingDebug iconTextContent underline3">
+                    <img class="icon" src="./assets/img/master_setting/debug.png">
+                    <span class="title">敬请期待</span>
+                    <img class="rightArrow" src="./assets/img/icon/rightArrow.png">
+                </div>
+            </div>
+        </div>
+
+        <!-- 消息自动回复 -->
+        <div class="msgAutoReplyPage fullPage">
+            <div class="pageTop sticky" display="flex">
+                <div class="left">
+                    <img src="./assets/img/icon/back.png" pageOut>
+                </div>
+                <div class="center">消息自动回复</div>
+                <div class="addMsgAutoReplyContent right">添加+</div>
+            </div>
+            <!-- 查询消息自动回复列表 -->
+            <div class="msgAutoReplyContentList"></div>
+            <!-- crud消息自动回复 -->
+            <div class="curdMsgAutoReply">
+                <div class="curdMsgAutoReplyTitle"></div>
+                <div class="sendMsgContainer">
+                    <div class="title">发送：</div>
+                    <div class="type">
+                        <span>类型：</span>
+                        <span class="selectSendMsgType"></span>
+                    </div>
+                    <div class="content" type="text">
+                        <span>文本：</span>
+                        <input class="sendMsgContentText" type="text" placeholder="请输入文本内容">
+                    </div>
+                    <div class="content" type="img">
+                        <span>图片：</span>
+                        <img class="sendMsgContentImg">
+                    </div>
+                    <div class="content" type="transfer">
+                        <span>金额：</span>
+                        <input class="sendMsgContentTransferMoney" type="number" placeholder="请输入转账金额">
+                    </div>
+                    <div class="content" type="transfer">
+                        <span>备注：</span>
+                        <input class="sendMsgContentTransferRemark" type="text" placeholder="请输入转账备注">
+                    </div>
+                </div>
+                <div class="replyMsgContainer">
+                    <div class="title">回复：</div>
+                    <div class="type">
+                        <span>类型：</span>
+                        <span class="selectReplyMsgType"></span>
+                    </div>
+                    <div class="content" type="text">
+                        <span>文本：</span>
+                        <input class="replyMsgContentText" type="text" placeholder="请输入文本内容">
+                    </div>
+                    <div class="content" type="img">
+                        <span>图片：</span>
+                        <img class="replyMsgContentImg">
+                    </div>
+                    <div class="content" type="transfer">
+                        <span>金额：</span>
+                        <input class="replyMsgContentTransferMoney" type="number" placeholder="请输入转账金额">
+                    </div>
+                    <div class="content" type="transfer">
+                        <span>备注：</span>
+                        <input class="replyMsgContentTransferRemark" type="text" placeholder="请输入转账备注">
+                    </div>
+                </div>
+                <div class="curdMsgAutoReplyOperate">
+                    <div class="curdMsgAutoReplyCancel" hide="curdMsgAutoReply">取消</div>
+                    <div class="curdMsgAutoReplyConfirm">确认</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <link rel="stylesheet" href="./css/tabbar-fix.css">
+    <script src="./js/util/append.js"></script>
+    <script src="./js/util/axios.js"></script>
+    <script>
+        appendCss('./css/index.css');
+        appendJs('./js/init.js');
+        appendJs('./js/index.js');
+        // appendJs('./js/fix-page-overlay.js'); // 修复页面覆盖问题 - 已禁用，影响原有功能
+        // appendJs('./js/diagnose-pages.js'); // 诊断页面状态
+        appendJs('./js/billing-longpress-menu.js'); // 长按菜单功能
+        appendJs('./js/init-identity-info.js'); // 身份信息页面初始化
+        // appendJs('./js/edit-friend-from-chat.js'); // 编辑好友功能已在 dialogueFrameFriend.js 中实现
+        // appendJs('./js/diagnose-edit-friend.js'); // 诊断编辑好友功能 - 已不需要
+        // appendJs('./js/fix-tabbar-after-fullpage.js'); // 修复全屏页面退出后 tabbar 无法点击 - 暂时禁用
+        appendJs('./js/diagnose-homemypage.js'); // 诊断 homeMyPage 显示问题
+        appendJs('./js/diagnose-homemypage.js'); // 诊断 homeMyPage 显示问题
+        // appendJs('./js/simple-billing-swipe.js'); // 已禁用左滑功能
+        // appendJs('./js/cleanup-billing-containers.js'); // 清理之前的包装器
+        // appendJs('./js/diagnose-tabbar.js'); // 诊断 tabbar 问题
+        // appen
+    </script>
+    <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("sw.js");
+    }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>初始化数据</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        button {
+            background-color: #07c160;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #06ad56;
+        }
+        .message {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .info {
+            background-color: #d1ecf1;
+            color: #0c5460;
+        }
+    </style>
+</head>
+<body>
+    <h1>微信模拟器 - 初始化数据</h1>
+    <p>点击下面的按钮来初始化示例数据（包括好友列表和聊天记录）</p>
+    <button onclick="initData()">初始化示例数据</button>
+    <div id="message"></div>
+
+    <script>
+        function initData() {
+            const messageDiv = document.getElementById('message');
+            
+            try {
+                // 初始化好友列表
+                const friendList = [
+                    {
+                        id: 'friend_001',
+                        nickname: '123',
+                        name: '123',
+                        realName: '张三',
+                        sex: '1',
+                        wxId: 'wxid_123',
+                        avatar: './assets/img/avatar_role/default_avatar1.jpg',
+                        address: '中国大陆',
+                        signature: 'diyi',
+                        top: '0',
+                        unread: '0',
+                        AIChat: '0',
+                        bgImage: ''
+                    },
+                    {
+                        id: 'friend_002',
+                        nickname: '好友昵称',
+                        name: '好友昵称',
+                        realName: '李四',
+                        sex: '2',
+                        wxId: 'wxid_friend',
+                        avatar: './assets/img/avatar_role/default_avatar2.png',
+                        address: '中国大陆',
+                        signature: 'draft',
+                        top: '0',
+                        unread: '0',
+                        AIChat: '0',
+                        bgImage: ''
+                    },
+                    {
+                        id: 'friend_003',
+                        nickname: '助手小C',
+                        name: '助手小C',
+                        realName: '王五',
+                        sex: '1',
+                        wxId: 'wxid_assistant',
+                        avatar: './assets/img/avatar_role/default_avatar3.jpg',
+                        address: '中国大陆',
+                        signature: '看这里~~~',
+                        top: '0',
+                        unread: '0',
+                        AIChat: '1',
+                        bgImage: ''
+                    },
+                    {
+                        id: 'friend_004',
+                        nickname: '微信团队',
+                        name: '微信团队',
+                        realName: '微信团队',
+                        sex: '1',
+                        wxId: 'wxid_team',
+                        avatar: './assets/img/avatar_role/default_avatar4.jpg',
+                        address: '中国大陆',
+                        signature: '帮助与反馈',
+                        top: '0',
+                        unread: '0',
+                        AIChat: '0',
+                        bgImage: ''
+                    }
+                ];
+
+                // 保存好友列表
+                localStorage.setItem('wx_friendInfoList', JSON.stringify(friendList));
+
+                // 为每个好友初始化聊天记录
+                friendList.forEach(friend => {
+                    const chatMessages = [
+                        {
+                            id: Date.now() + '_1',
+                            role: 'sys',
+                            bodyContent: Date.now(),
+                            type: 'sysTime'
+                        },
+                        {
+                            id: Date.now() + '_2',
+                            role: 'other',
+                            bodyContent: '我通过了你的朋友验证请求，现在我们可以开始聊天了',
+                            type: 'text'
+                        },
+                        {
+                            id: Date.now() + '_3',
+                            role: 'self',
+                            bodyContent: '你好！',
+                            type: 'text'
+                        }
+                    ];
+                    localStorage.setItem(`wx_friendChatMsgList_${friend.id}`, JSON.stringify(chatMessages));
+                });
+
+                // 初始化自己的信息
+                const selfInfo = {
+                    id: 'selfInfoId',
+                    nickname: '司空震',
+                    sex: '1',
+                    wxId: 'wxid_skz',
+                    avatar: './assets/img/avatar_role/default_avatar1.jpg',
+                    address: '中国大陆',
+                    signature: '个性签名',
+                    realName: '真实名字',
+                    looseChange: 888.6,
+                    changeCard: 999.8,
+                    yieldRate: 1.67
+                };
+                localStorage.setItem('wx_selfInfo', JSON.stringify(selfInfo));
+
+                messageDiv.className = 'message success';
+                messageDiv.innerHTML = `
+                    <strong>初始化成功！</strong><br>
+                    已添加 ${friendList.length} 个好友<br>
+                    <a href="index.html">点击这里返回微信界面</a>
+                `;
+            } catch (error) {
+                messageDiv.className = 'message error';
+                messageDiv.innerHTML = `<strong>初始化失败：</strong>${error.message}`;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>输入框调试</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .test-input {
+            border: 1px solid #ddd;
+            padding: 10px;
+            min-height: 50px;
+            margin: 10px 0;
+        }
+        .info {
+            background-color: #f0f0f0;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #07c160;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>聊天输入框调试工具</h1>
+    
+    <h2>测试1: 基本的 contenteditable</h2>
+    <div class="test-input" contenteditable="true" id="test1">
+        点击这里输入文字...
+    </div>
+    
+    <h2>测试2: 模拟微信输入框</h2>
+    <div class="test-input dialogueFrameFriendMsgArea" contenteditable="true" id="test2">
+        点击这里输入文字...
+    </div>
+    
+    <h2>诊断信息</h2>
+    <div class="info" id="diagnostics"></div>
+    
+    <h2>操作</h2>
+    <button onclick="checkMainPage()">检查主页面输入框</button>
+    <button onclick="focusInput()">强制聚焦输入框</button>
+    <button onclick="clearInput()">清空输入框</button>
+    
+    <h2>控制台日志</h2>
+    <div class="info" id="console-log"></div>
+
+    <script>
+        // 记录日志
+        function log(message) {
+            const logDiv = document.getElementById('console-log');
+            const time = new Date().toLocaleTimeString();
+            logDiv.innerHTML += `<div>[${time}] ${message}</div>`;
+            console.log(message);
+        }
+
+        // 检查主页面的输入框
+        function checkMainPage() {
+            try {
+                // 尝试在新窗口打开主页面并检查
+                const mainWindow = window.open('index.html', '_blank');
+                
+                setTimeout(() => {
+                    try {
+                        const inputBox = mainWindow.document.querySelector('.dialogueFrameFriendMsgArea');
+                        if (inputBox) {
+                            log('✓ 找到输入框');
+                            log('contenteditable: ' + inputBox.getAttribute('contenteditable'));
+                            log('是否可见: ' + (inputBox.offsetWidth > 0 && inputBox.offsetHeight > 0));
+                            log('z-index: ' + window.getComputedStyle(inputBox).zIndex);
+                            log('pointer-events: ' + window.getComputedStyle(inputBox).pointerEvents);
+                        } else {
+                            log('✗ 未找到输入框');
+                        }
+                    } catch (e) {
+                        log('✗ 无法访问主页面: ' + e.message);
+                    }
+                }, 2000);
+            } catch (e) {
+                log('✗ 错误: ' + e.message);
+            }
+        }
+
+        // 强制聚焦
+        function focusInput() {
+            const input = document.getElementById('test2');
+            input.focus();
+            log('已聚焦到测试输入框');
+        }
+
+        // 清空输入框
+        function clearInput() {
+            document.getElementById('test1').innerHTML = '';
+            document.getElementById('test2').innerHTML = '';
+            log('已清空输入框');
+        }
+
+        // 显示诊断信息
+        function showDiagnostics() {
+            const diagnostics = document.getElementById('diagnostics');
+            const info = {
+                '用户代理': navigator.userAgent,
+                '屏幕宽度': window.innerWidth,
+                '屏幕高度': window.innerHeight,
+                '是否触摸设备': 'ontouchstart' in window,
+                'contenteditable支持': document.queryCommandSupported('contentEditable')
+            };
+            
+            let html = '';
+            for (const [key, value] of Object.entries(info)) {
+                html += `<div><strong>${key}:</strong> ${value}</div>`;
+            }
+            diagnostics.innerHTML = html;
+        }
+
+        // 监听输入事件
+        document.getElementById('test1').addEventListener('input', (e) => {
+            log('测试1输入: ' + e.target.textContent);
+        });
+
+        document.getElementById('test2').addEventListener('input', (e) => {
+            log('测试2输入: ' + e.target.textContent);
+        });
+
+        // 页面加载时显示诊断信息
+        window.onload = showDiagnostics;
+    </script>
+</body>
+</html>

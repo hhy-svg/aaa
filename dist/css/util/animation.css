@@ -1,0 +1,104 @@
+/* 动画 */
+
+/* 左滑 */
+
+@keyframes leftSlide {
+    0% {
+        left: 100%;
+    }
+    100% {
+        left: 0;
+    }
+}
+
+/* 起始高度为零 */
+
+@keyframes startZeroHeight {
+    0% {
+        height: 0;
+    }
+}
+
+/* 淡淡的放大 */
+
+@keyframes fadeMagnify {
+    0% {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* 上移 */
+
+@keyframes moveUp {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* 稍微放大并淡入 */
+
+@keyframes zoomSlightlyfadeIn {
+    0% {
+        transform: scale(0.92);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* 从右上角淡入 */
+
+@keyframes topRightFadeIn {
+    0% {
+        transform-origin: 100% 0%;
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform-origin: 100% 0%;
+        opacity: 1;
+    }
+}
+
+/* 顺时针旋转 */
+
+@keyframes clockwise {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* 逆时针旋转 */
+
+@keyframes counterclockwise {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+/* 淡入 */
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

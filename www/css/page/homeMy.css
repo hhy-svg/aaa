@@ -1,0 +1,114 @@
+.homeMyPage {
+    display: none;
+    background-color: white;
+}
+
+.homeMyPageBaseInfo {
+    height: 11.5rem;
+    border-bottom: 1px solid var(--borderColor--gray1);
+    background-color: white;
+}
+
+.homeMyPageAvatar {
+    width: 4rem;
+    height: 4rem;
+    background-image: url('../../assets/img/avatar_role/default_avatar1.jpg');
+    top: 3.6rem;
+    left: 1.3rem;
+}
+
+.homeMyPageName {
+    top: 3.6rem;
+    left: 6.3rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.homeMyPageWxId {
+    top: 6.2rem;
+    left: 6.3rem;
+    color: #747474;
+    font-size: 0.9rem;
+}
+
+.homeMyPageQrCode {
+    top: 4.1rem;
+    right: 1.3rem;
+    height: 1.1rem;
+}
+
+.homeMyPageRightArrow {
+    top: 6.4rem;
+    right: 1.3rem;
+    height: 0.82rem;
+}
+
+.homeMyPageMoreSelfStatus {
+    width: 3.5rem;
+    height: 1.35rem;
+    top: 9rem;
+    left: 6.3rem;
+    color: #747474;
+    font-size: 0.8rem;
+    border: var(--line--narrow) solid rgb(216, 216, 216);
+    border-radius: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.homeMyPageMoreSelfStatus>img {
+    height: 0.65rem;
+    margin-right: 0.2rem;
+}
+
+.homeMyPageMoreOtherStatus {
+    width: 1.35rem;
+    height: 1.35rem;
+    top: 9rem;
+    left: 10.5rem;
+    border: var(--line--narrow) solid rgb(216, 216, 216);
+    border-radius: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.homeMyPageMoreOtherStatus>img {
+    height: 0.85rem;
+}
+
+.iconTextContentList {
+    height: 100%;
+    background-color: #ededed;
+    padding-top: 0.5rem;
+}
+
+.iconTextContent.separate {
+    margin-top: 0.5rem;
+}
+
+.iconTextContent {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 1.05rem 0;
+    position: relative;
+    background-color: white;
+}
+
+.iconTextContent>.icon {
+    height: 1.4rem;
+    margin-left: 1.1rem;
+}
+
+.iconTextContent>.title {
+    margin-left: 1.1rem;
+}
+
+.iconTextContent>.rightArrow {
+    height: 0.82rem;
+    position: absolute;
+    top: auto;
+    right: 1.3rem;
+}

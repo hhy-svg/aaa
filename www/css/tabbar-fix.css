@@ -1,0 +1,79 @@
+/* 底部导航栏样式优化 */
+.homePageNav {
+    position: fixed !important;
+    z-index: 100 !important;
+    display: flex !important;
+}
+
+/* 当全屏页面显示时，隐藏底部导航栏 - 使用body类来控制 */
+body.fullPageActive .homePageNav {
+    display: none !important;
+}
+
+/* 但是当"我"页面显示时，强制显示 tabbar */
+body.fullPageActive.homeMyPageActive .homePageNav {
+    display: flex !important;
+}
+
+.homePageNav > div {
+    position: relative;
+}
+
+.homePageNav > div img {
+    transition: all 0.3s ease;
+}
+
+/* 文字颜色 */
+.homePageNav > div > div:last-child {
+    color: #999;
+    transition: color 0.3s ease;
+}
+
+/* 选中状态的文字 - 微信绿色 */
+.homePageNav > div img[src*="-on.png"] + div {
+    color: #07c160 !important;
+}
+
+/* 修复"发现"和"我的"页面滚动问题 */
+.homeFindPage,
+.homeMyPage {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch;
+    position: absolute !important;
+    top: 2.5rem; /* 顶部栏高度 */
+    left: 0;
+    right: 0;
+    bottom: 3.6rem; /* 底部导航栏高度 */
+}
+
+.homeMyPage .iconTextContentList,
+.homeFindPage.iconTextContentList {
+    height: auto !important;
+    min-height: 100%;
+    padding-bottom: 1rem;
+}
+
+/* 确保聊天输入框可以正常工作 */
+.dialogueFrameFriendMsgArea {
+    user-select: text !important;
+    -webkit-user-select: text !important;
+    pointer-events: auto !important;
+    touch-action: auto !important;
+}
+
+.dialogueFrameFriendMsgArea:focus {
+    outline: none !important;
+}
+
+/* 修复转账页面人民币符号被遮挡的问题 */
+.zzjeibox > .rmbMark {
+    position: relative !important;
+    z-index: 10 !important;
+    flex-shrink: 0 !important;
+    display: inline-block !important;
+}
+
+.zzjeibox {
+    align-items: center !important;
+}

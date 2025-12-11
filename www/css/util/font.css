@@ -1,0 +1,56 @@
+/* 字体 */
+
+@font-face {
+    font-family: 'SF-Pro-Display-BoldItalic';
+    src: url('../../assets/fonts/SF-Pro-Display-BoldItalic.otf')
+}
+
+@font-face {
+    font-family: 'SF-Pro-Text-MediumItalic';
+    src: url('../../assets/fonts/SF-Pro-Text-MediumItalic.ttf')
+}
+
+@font-face {
+    font-family: 'WeChatNum';
+    src: url('../../assets/fonts/WeChatNum.ttf')
+}
+
+@font-face {
+    font-family: 'WeChatSansSS-Bold';
+    src: url('../../assets/fonts/WeChatSansSS-Bold.ttf')
+}
+
+@font-face {
+    font-family: 'WeChatSansSS-Light';
+    src: url('../../assets/fonts/WeChatSansSS-Light.ttf')
+}
+
+@font-face {
+    font-family: 'WeChatSansSS-Medium';
+    src: url('../../assets/fonts/WeChatSansSS-Medium.ttf')
+}
+
+@font-face {
+    font-family: 'WeChatSansSS-Regular';
+    src: url('../../assets/fonts/WeChatSansSS-Regular.ttf')
+}
+
+@font-face {
+    font-family: 'WeChatSansStd-Bold';
+    src: url('../../assets/fonts/WeChatSansStd-Bold.ttf')
+}
+
+@font-face {
+    font-family: 'WeChatSansStd-Light';
+    src: url('../../assets/fonts/WeChatSansStd-Light.ttf')
+}
+
+@font-face {
+    font-family: 'WeChatSansStd-Medium';
+    src: url('../../assets/fonts/WeChatSansStd-Medium.ttf')
+}
+
+@font-face {
+    font-family: 'WeChatSansStd-Regular';
+    src: url('../../assets/fonts/WeChatSansStd-Regular.ttf')
+}

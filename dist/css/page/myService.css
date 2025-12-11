@@ -1,0 +1,91 @@
+.myServicePage {
+    background-color: #ededed;
+    z-index: 9;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-bottom: 2rem;
+    display: none;
+}
+
+.twoMainService {
+    width: 94%;
+    margin-left: 3%;
+    height: 9rem;
+    margin-top: 0.5rem;
+    background-color: #19b060;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 0.4rem;
+}
+
+.twoMainService>div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 6rem;
+    padding: 0 3rem;
+    padding-top: 1.4rem;
+    border-radius: inherit;
+}
+
+.twoMainService>div:active {
+    background-color: #0e8b4a;
+}
+
+.twoMainService>div>img {
+    height: 2.5rem;
+}
+
+.twoMainService>div>.title {
+    margin-top: 0.2rem;
+}
+
+.looseChange,
+.changeCard,
+.yieldRate {
+    font-family: WeChatSansStd-Regular;
+}
+
+.walletService>.looseChange {
+    font-size: 0.92rem;
+    margin-top: 0.2rem;
+    color: #ffffff9a;
+}
+
+.serviceContainer {
+    background-color: white;
+    width: 94%;
+    margin-left: 3%;
+    border-radius: 0.4rem;
+    margin-top: 0.5rem;
+    padding: 0.9rem 0.8rem;
+    box-sizing: border-box;
+    font-size: 0.85rem;
+}
+
+.serviceContainer>.title {
+    color: #777777;
+    margin-left: 0.6rem;
+}
+
+.serviceContainer>.services {
+    color: #313131;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    /* padding: 1.5rem 0; */
+    padding-bottom: 1.5rem;
+}
+
+.serviceContainer>.services>.service {
+    width: 5rem;
+    text-align: center;
+    margin-top: 1.7rem;
+}
+
+.serviceContainer>.services>.service>img {
+    height: 1.8rem;
+}

@@ -1,0 +1,383 @@
+/* dialog 通用 */
+
+.dialog {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.2s;
+    /* 定义变量 */
+    --dialog-radius: 0.9rem;
+    --dialog-width: 20rem;
+    --dialog-info-top: 13rem;
+    --dialog-operate-height: 4rem;
+    --dialog-grey-line: 0.8px solid #e6e6e6;
+    --dialog-text-color: #576b95;
+    --dialog-btn-weight: 550;
+}
+
+.dialog>.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    animation: fadeMagnify 0.2s;
+}
+
+.dialog>.container>.showInfo {
+    width: var(--dialog-width);
+    background-color: white;
+    border-top-left-radius: var(--dialog-radius);
+    border-top-right-radius: var(--dialog-radius);
+}
+
+.dialog>.container>.showInfo>.title {
+    font-weight: 500;
+    text-align: center;
+    margin-top: 1.8rem;
+    font-size: 1.05rem;
+}
+
+.dialog>.container>.showInfo>.content {
+    text-align: center;
+    padding: 1rem;
+    padding-top: 1.3rem;
+    padding-bottom: 1.5rem;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    color: #505050;
+}
+
+/* 弹窗内容样式 */
+
+.dialog>.container>.showInfo>.content [small] {
+    font-size: 0.8rem;
+}
+
+.dialog>.container>.showInfo>.content span {
+    color: var(--dialog-text-color);
+}
+
+.dialog>.container>.showInfo>.content p {
+    margin-top: 0.5rem;
+}
+
+/* 弹窗的操作按钮 */
+
+.dialog>.container>.operate {
+    width: var(--dialog-width);
+    display: flex;
+    justify-content: center;
+}
+
+.dialog>.container>.operate>.affirm,
+.dialog>.container>.operate>.cancel {
+    width: 50%;
+    height: var(--dialog-operate-height);
+    background-color: white;
+    border-bottom-left-radius: var(--dialog-radius);
+    text-align: center;
+    line-height: var(--dialog-operate-height);
+    color: var(--dialog-text-color);
+    font-weight: var(--dialog-btn-weight);
+    font-size: 1.1rem;
+    border: none;
+    border-top: var(--dialog-grey-line);
+}
+
+.dialog>.container>.operate>.affirm {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: var(--dialog-radius);
+    border-left: var(--dialog-grey-line);
+}
+
+/* alert 弹窗 */
+
+.dialogAlert>.container>.affirm {
+    width: var(--dialog-width);
+    height: var(--dialog-operate-height);
+    background-color: white;
+    border-bottom-left-radius: var(--dialog-radius);
+    border-bottom-right-radius: var(--dialog-radius);
+    text-align: center;
+    line-height: var(--dialog-operate-height);
+    color: var(--dialog-text-color);
+    font-weight: var(--dialog-btn-weight);
+    font-size: 1.1rem;
+    border: none;
+    border-top: var(--dialog-grey-line);
+}
+
+/* confirm 弹窗 无 */
+
+/* prompt 弹窗 */
+
+.dialogPrompt>.container>.showInfo>.content {
+    width: 80%;
+    min-height: 2.5rem;
+    max-height: 15rem;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 10%;
+    padding: 0;
+    border: none;
+    border-bottom: 1px solid #d0d0d094;
+    background-color: transparent;
+    font-size: 1rem;
+    resize: vertical;
+}
+
+.dialogPrompt>.container>.showInfo>.content:focus {
+    outline: none;
+}
+
+.dialogPrompt>.container>.showInfo {
+    position: relative;
+}
+
+/* 选项框 */
+
+.dialogOption {
+    display: flex !important;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    justify-content: center;
+}
+
+@keyframes dialogOption {
+    0% {
+        transform: translateY(300px);
+    }
+}
+
+.dialogOption>.title,
+.dialogOption>.option,
+.dialogOption>.cancel {
+    width: 70%;
+    text-align: center;
+    animation: dialogOption 0.3s;
+}
+
+.dialogOption>.option,
+.dialogOption>.cancel {
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+    background-color: white;
+    border-bottom: 0.8px solid rgb(225, 225, 225);
+    color: #242424;
+}
+
+.dialogOption>.title {
+    text-shadow: 0 0 0.5rem black;
+    margin-bottom: 1rem;
+    color: white;
+    font-weight: 550;
+    font-size: 1.1rem;
+}
+
+.dialogOption>.option {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dialogOption>.option>img {
+    height: 1.15rem;
+    margin-right: 1rem;
+}
+
+.dialogOption>.cancel {
+    color: black;
+    border-top: 0.6rem solid rgb(240, 240, 240);
+}
+
+/* 多选框 */
+
+.dialogCheckbox {
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dialogCheckbox>.title {
+    width: 90%;
+    height: 4rem;
+    line-height: 4rem;
+    background-color: white;
+    font-size: 1.1rem;
+    text-align: center;
+    border-bottom: var(--dialog-grey-line);
+    border-top-left-radius: var(--dialog-radius);
+    border-top-right-radius: var(--dialog-radius);
+}
+
+.dialogCheckbox>.content {
+    width: 90%;
+    background-color: white;
+    padding: 1rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.dialogCheckbox>.content>.option {
+    border: 1px solid rgb(210, 210, 210);
+    margin: 0.5rem;
+    padding: 0.3rem;
+    font-size: 0.9rem;
+    color: rgb(105, 105, 105);
+}
+
+.dialogCheckbox>.content>.active {
+    border-color: #676767;
+    color: rgb(48, 48, 48);
+    position: relative;
+}
+
+.dialogCheckbox>.content>.active::after {
+    content: '✅';
+    position: absolute;
+    top: -0.6rem;
+    left: -0.6rem;
+    font-size: 0.8rem;
+}
+
+.dialogCheckbox>.operate {
+    width: 90%;
+    display: flex;
+    border-top: var(--dialog-grey-line);
+    border-bottom-left-radius: var(--dialog-radius);
+    border-bottom-right-radius: var(--dialog-radius);
+    overflow: hidden;
+}
+
+.dialogCheckbox>.operate>button {
+    flex: 1;
+    border: none;
+    height: 3.5rem;
+    color: var(--dialog-text-color);
+    font-weight: var(--dialog-btn-weight);
+    font-size: 1.1rem;
+    background-color: white;
+}
+
+.dialogCheckbox>.operate>.affirm {
+    border-left: var(--dialog-grey-line);
+}
+
+/* 加载中 */
+
+.dialogLoading {
+    background-color: transparent;
+}
+
+.dialogLoading>.container {
+    color: white;
+    text-align: center;
+    background-color: var(--bgColor--rubricans1);
+    border-radius: 0.6rem;
+    width: 8.4rem;
+    height: 8.4rem;
+    position: absolute;
+    top: calc(50vh - 4.2rem);
+    left: calc(50vw - 4.2rem);
+}
+
+.dialogLoading>.container>img {
+    width: 2.4rem;
+    margin-bottom: 1rem;
+    animation: clockwise 1s linear infinite;
+}
+
+.dialogLoading>.cancel {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    transform: scale(1.2);
+    display: none;
+}
+
+/* 时间选择器 */
+
+.dialogTimePicker>.container {
+    flex-direction: row;
+    justify-content: space-evenly;
+    position: absolute;
+    bottom: 0;
+    height: 25rem;
+    background-color: white;
+    box-sizing: border-box;
+    padding-top: 4rem;
+    padding-bottom: 1rem;
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
+    animation: none;
+    cursor: default;
+}
+
+.dialogTimePicker>.container>.select {
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: overflow;
+    position: relative;
+    text-align: center;
+    flex: 1;
+}
+
+.dialogTimePicker>.container>.select>.title {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgb(245, 245, 245);
+    padding-bottom: 0.3rem;
+}
+
+.dialogTimePicker>.container>.select>.item {
+    padding: 0.5rem 1rem;
+    color: rgb(180, 180, 180);
+}
+
+.dialogTimePicker>.container>.select>.item.active {
+    font-weight: 600;
+    color: black;
+}
+
+.dialogTimePicker>.timePickerResult {
+    position: absolute;
+    bottom: 25rem;
+    left: 0.5rem;
+    color: rgb(207, 207, 207);
+}
+
+.dialogTimePicker>.operate {
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    bottom: 22.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dialogTimePicker>.operate>.timePickerCancel {
+    margin-left: 1rem;
+    color: var(--dialog-text-color);
+}
+
+.dialogTimePicker>.operate>.timePickerAffirm {
+    margin-right: 1rem;
+    color: var(--dialog-text-color);
+}

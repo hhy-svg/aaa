@@ -1,0 +1,27 @@
+{
+  "name": "wechat-electron-app",
+  "version": "1.0.0",
+  "description": "仿微信Electron应用",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "dist": "electron-builder --publish=never"
+  },
+  "devDependencies": {
+    "electron": "^latest",
+    "electron-builder": "^latest"
+  },
+  "build": {
+    "appId": "com.example.wechatapp",
+    "productName": "仿微信",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!node_modules",
+      "!dist"
+    ]
+  }
+}

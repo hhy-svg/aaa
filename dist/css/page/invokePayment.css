@@ -1,0 +1,240 @@
+.invokePaymentPage {
+    z-index: 1000;
+    background-color: transparent;
+    transition: background-color 0.2s;
+    display: none;
+}
+
+.payLoading {
+    width: 8.4rem;
+    height: 8.8rem;
+    position: absolute;
+    z-index: 9;
+    top: calc(50% - 4.2rem);
+    left: calc(50% - 4.4rem);
+    background-color: var(--bgColor--rubricans1);
+    border-radius: 0.6rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    display: none;
+}
+
+.payLogo {
+    width: 2rem;
+}
+
+.payLoading>.dynamicLoading {
+    width: 68px;
+    height: 15px;
+    background-image: url(../../assets/img/invokePayment/payLoading.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    animation: dynamicLoading steps(1) 0.6s infinite;
+    transform: scale(0.35);
+}
+
+@keyframes dynamicLoading {
+    0% {
+        background-position: 0 0;
+    }
+    33% {
+        background-position: 0 -15px;
+    }
+    66% {
+        background-position: 0 -29px;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.prepayment {
+    width: 100%;
+    height: 29rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    display: none;
+}
+
+.closePrepayment {
+    width: 0.85rem;
+    top: 1.5rem;
+    left: 5%;
+}
+
+.togglePayVerifyWay {
+    top: 1.6rem;
+    right: 1rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--textColor--blue2);
+}
+
+.prepaymentTitle {
+    width: 100%;
+    text-align: center;
+    font-size: 1.1rem;
+    top: 5rem;
+    left: 0;
+}
+
+.prepaymentMoney {
+    width: 100%;
+    text-align: center;
+    font-size: 2.6rem;
+    top: 7rem;
+    left: 0;
+    font-family: WeChatSansSS-Medium;
+}
+
+.togglePayWayContainer {
+    width: 90%;
+    top: 11rem;
+    left: 5%;
+    border-top: 1px solid var(--bgColor--gray1);
+    padding-top: 1.2rem;
+    color: #848484;
+    font-size: 0.9rem;
+}
+
+.togglePayWay {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.togglePayWay>.genggai {
+    display: flex;
+    align-items: center;
+}
+
+.togglePayWay>.genggai>img {
+    width: 1rem;
+}
+
+.currentPayWay {
+    width: 100%;
+    height: 3rem;
+    background-color: #fff9e6;
+    border-radius: 0.2rem;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+.currentPayWayTitle {
+    display: flex;
+    align-items: center;
+}
+
+.currentPayWayLogo {
+    width: 1.2rem;
+    margin-right: 0.4rem;
+}
+
+.currentPayWayUsable {
+    width: 1.7rem;
+}
+
+.confirmPayment {
+    width: 12rem;
+    height: 3.3rem;
+    line-height: 3.3rem;
+    font-size: 1.05rem;
+    text-align: center;
+    color: white;
+    background-color: #07c15e;
+    top: 21rem;
+    left: calc(50% - 6rem);
+    border-radius: 0.5rem;
+}
+
+.fingerprintPayVerify {
+    width: 84%;
+    height: 24rem;
+    background-color: white;
+    position: absolute;
+    bottom: 2rem;
+    left: 8%;
+    border-radius: 2rem;
+    display: none;
+}
+
+.closeFingerprintPayVerify {
+    width: 1rem;
+    top: 1.2rem;
+    right: 1.2rem;
+}
+
+.fingerprintPayVerifyTitle {
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.05rem;
+    top: 4rem;
+    color: #474747;
+}
+
+.fingerprintIcon {
+    width: 5rem;
+    top: 10rem;
+    left: calc(50% - 2.5rem);
+}
+
+.paymentResult {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    padding-top: 3rem;
+    box-sizing: border-box;
+    text-align: center;
+    display: none;
+}
+
+.paymentResultTop {
+    width: 100%;
+    color: #07c15e;
+    font-weight: 700;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.paymentResultTop>img {
+    height: 1.4rem;
+    margin-right: 0.3rem;
+}
+
+.paymentResultText {
+    margin-top: 6rem;
+}
+
+.paymentResultMoney {
+    margin-top: 0.6rem;
+    font-size: 3rem;
+    font-family: WeChatSansSS-Medium;
+}
+
+.closePaymentResult {
+    width: 12rem;
+    height: 3.3rem;
+    line-height: 3.3rem;
+    border-radius: 0.3rem;
+    font-weight: 600;
+    margin-top: 20rem;
+    margin-left: calc(50% - 6rem);
+    background-color: #f2f2f2;
+    color: #000;
+    cursor: pointer;
+}

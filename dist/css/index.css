@@ -1,0 +1,390 @@
+#app {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    user-select: none;
+    /* font-family: WeChatSansStd-Regular; */
+}
+
+:root {
+    /* 自定义变量 */
+    --bgColor--gray1: #ededed;
+    --bgColor--gray2: #f5f5f5;
+    --borderColor--gray1: #e9e9e9;
+    --textColor--green1: #04C452;
+    --textColor--gray1: #a4a4a4;
+    --textColor--gray2: #ececec;
+    --textColor--blue1: #616c8e;
+    --textColor--blue2: #576b95;
+    --bgColor--green1: #07c160;
+    --bgColor--rubricans1: #4c4c4c;
+    --line--narrow: 0.7px;
+}
+
+/* 隐藏滚动条 */
+
+/* 定义滚动条宽度和背景颜色 */
+
+::-webkit-scrollbar {
+    width: 0;
+    background-color: transparent;
+}
+
+/* 定义滚动条轨道的阴影和圆角 */
+
+::-webkit-scrollbar-track {
+    width: 0;
+    -webkit-box-shadow: inset 0 0 0 transparent;
+    background-color: transparent;
+}
+
+/* 定义滑块的圆角和阴影 */
+
+::-webkit-scrollbar-thumb {
+    width: 0;
+    -webkit-box-shadow: inset 0 0 0 transparent;
+    background-color: transparent;
+}
+
+/* 不可见，但实体存在 */
+
+.visibilityHide {
+    visibility: hidden;
+}
+
+/* 排序 */
+
+.excitement {
+    width: 99%;
+    border: 0.1rem dashed rgb(0, 172, 14);
+    opacity: 0.5;
+}
+
+.weakness {
+    width: 99%;
+    border: 0.1rem dashed rgb(152, 152, 152);
+    opacity: 0;
+}
+
+/* 表单获取焦点时无边框 */
+
+input:focus,
+[contenteditable="true"]:focus {
+    outline: none;
+}
+
+input::placeholder,
+[contenteditable="true"]::placeholder {
+    color: rgb(190, 190, 190);
+}
+
+/* 头像 背景图 */
+
+.avatar,
+.bgImage {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 0.25rem;
+    background-color: white;
+}
+
+/* 未读消息个数 */
+
+.unread {
+    color: white;
+    background-color: #fa5151;
+    border-radius: 100rem;
+    padding: 0 0.3rem;
+    box-sizing: border-box;
+    font-size: 0.77rem;
+    min-width: 1.1rem;
+    height: 1.1rem;
+    line-height: 1.12rem;
+    text-align: center;
+}
+
+/* 文本溢出后显示省略号（一行） */
+
+.textOverHide {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* 下划线 */
+
+.underline1::after {
+    content: '';
+    width: 100%;
+    height: var(--line--narrow);
+    background-color: rgb(207 207 207 / 18%);
+    position: absolute;
+    bottom: 0;
+    left: 4.98rem;
+}
+
+.underline2::after {
+    content: '';
+    width: 100%;
+    height: var(--line--narrow);
+    background-color: rgb(207 207 207 / 5%);
+    position: absolute;
+    bottom: 0;
+    left: 3.9rem;
+}
+
+.underline3::after {
+    content: '';
+    width: 100%;
+    height: var(--line--narrow);
+    background-color: rgb(207 207 207 / 18%);
+    position: absolute;
+    bottom: 0;
+    left: 3.6rem;
+}
+
+.underline4::after {
+    content: '';
+    width: 100%;
+    height: var(--line--narrow);
+    background-color: rgb(207 207 207 / 18%);
+    position: absolute;
+    bottom: 0;
+    left: 4.7rem;
+}
+
+/* 全屏的页面 */
+
+.fullPage {
+    width: 100%;
+    height: 99.9%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+}
+
+/* 子绝父相 */
+
+.zjfx {
+    position: relative;
+}
+
+.zjfx>* {
+    position: absolute;
+}
+
+/* 页面顶部 */
+
+.pageTop {
+    width: 100%;
+    height: 2.5rem;
+    display: flex;
+    background-color: var(--bgColor--gray1);
+    border-bottom: 1px solid var(--borderColor--gray1);
+    box-sizing: content-box;
+}
+
+.pageTop.sticky {
+    border: none;
+    position: sticky;
+    top: 0;
+}
+
+.pageTop>div {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.pageTop>.left {
+    justify-content: flex-start;
+    padding-left: 0.5rem;
+}
+
+.pageTop>.center {
+    flex: 2;
+    justify-content: center;
+    font-size: 1.05rem;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.pageTop>.right {
+    justify-content: flex-end;
+    padding-right: 0.5rem;
+}
+
+.pageTop>.right>img {
+    width: 1.2rem;
+    padding: 0.6rem;
+}
+
+.pageTop>.right>span {
+    margin-right: 0.6rem;
+    display: inline-block;
+}
+
+.pageTop>.left>img {
+    width: 1.2rem;
+    margin: 0 0.3rem;
+}
+
+/* 首页导航栏 */
+
+.homePageNav {
+    width: 100%;
+    height: 3.6rem;
+    position: absolute;
+    z-index: 9;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--bgColor--gray2);
+    border-top: var(--line--narrow) solid var(--borderColor--gray1);
+}
+
+.homePageNav>div {
+    width: 4rem;
+    text-align: center;
+    font-size: 0.7rem;
+    position: relative;
+}
+
+.homePageNav>div.active {
+    color: var(--textColor--green1);
+}
+
+.homePageNav>div>img {
+    height: 1.4rem;
+}
+
+.homePageNavUnread {
+    position: absolute;
+    top: -0.1rem;
+    left: 2.2rem;
+}
+
+/* 会话列表 */
+
+.dialogueContainer {
+    height: 50rem;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* 按下时出现灰色背景 */
+
+.dialogueContainer>.dialogueContent:active,
+.homeContactsCommonList>.iconTextContent:active,
+.homeContactsPersonList>.iconTextContent:active,
+.homeFindPage>.iconTextContent:active,
+.homeMyPageIconTextContentList>.iconTextContent:active,
+.masterSettingPageIconTextContentList>.iconTextContent:active,
+.myWalletPageIconTextContentList>.iconTextContent:active {
+    background-color: #e5e5e5 !important;
+}
+
+.dialogueContent {
+    position: relative;
+    height: 4.44rem;
+}
+
+.dialogueContent.top {
+    background-color: var(--bgColor--gray1);
+}
+
+.dialogueContent>div {
+    position: absolute;
+}
+
+.dialogueContent>.dialogueAvatar {
+    width: 3rem;
+    height: 3rem;
+    top: 0.72rem;
+    left: 1rem;
+}
+
+.dialogueContent>.dialogueUnread {
+    top: 0.5rem;
+    left: 3.1rem;
+}
+
+.dialogueContent>.dialogueName {
+    top: 0.8rem;
+    left: 5rem;
+    width: 15rem;
+    font-size: 1.05rem;
+    color: #2e2e2e;
+}
+
+.dialogueContent>.lastBodyMsg {
+    top: 2.5rem;
+    left: 5rem;
+    font-size: 0.8rem;
+    color: var(--textColor--gray1);
+    width: 15.5rem;
+}
+
+.dialogueContent>.lastBodyMsg>[highlight] {
+    color: rgb(227, 39, 39);
+}
+
+.dialogueContent>.lastSysTime {
+    right: 1rem;
+    top: 1rem;
+    font-size: 0.7rem;
+    color: var(--textColor--gray1);
+}
+
+.homePageMoreMenu {
+    width: 10.5rem;
+    position: absolute;
+    top: 3rem;
+    right: 0.7rem;
+    z-index: 9;
+    background-color: var(--bgColor--rubricans1);
+    color: white;
+    border-radius: 0.2rem;
+    display: none;
+}
+
+.homePageMoreMenu::before {
+    content: '';
+    width: 1.1rem;
+    height: 1.1rem;
+    background-color: inherit;
+    border-radius: 0.1rem;
+    position: absolute;
+    right: 0.7rem;
+    top: -0.25rem;
+    transform: rotate(45deg);
+}
+
+.homePageMoreMenu>[option] {
+    height: 2.4rem;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    position: relative;
+    font-size: 1.05rem;
+}
+
+.homePageMoreMenu>[option]>img {
+    height: 1.95rem;
+    margin-right: 0.8rem;
+    margin-left: 0.6rem;
+}
+
+/* CSS压缩 https://c.runoob.com/front-end/52/ */

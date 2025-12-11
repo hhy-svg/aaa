@@ -1,0 +1,95 @@
+/* 身份信息页面 v3 */
+.identityInfoPage {
+    background-color: #ededed;
+    z-index: 100;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.identityInfoPageContent {
+    padding-top: 0;
+    background-color: white;
+    width: 100%;
+}
+
+.identityInfoPageContent > .iconTextContent {
+    padding: 0.9rem 1.1rem;
+    position: relative;
+    min-height: 2.5rem;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.identityInfoPageContent > .iconTextContent > .title {
+    font-size: 0.9rem;
+    color: #000;
+}
+
+/* 第一行和第三行：只有status文字，没有箭头 */
+.identityInfoPageContent > .iconTextContent > .status {
+    font-size: 0.9rem;
+    color: #888;
+    position: absolute;
+    right: 1.1rem;
+    white-space: nowrap;
+}
+
+/* 第二行：有incomplete文字 + 红点 + 箭头 */
+.identityInfoPageContent > .iconTextContent.personalInfo > .incomplete {
+    font-size: 0.9rem;
+    color: #888;
+    position: absolute;
+    right: 2.8rem;
+    white-space: nowrap;
+}
+
+.identityInfoPageContent > .iconTextContent.personalInfo > .redDot {
+    width: 0.4rem;
+    height: 0.4rem;
+    background-color: #fa5151;
+    border-radius: 50%;
+    position: absolute;
+    right: 2rem;
+}
+
+.identityInfoPageContent > .iconTextContent.personalInfo > .rightArrow {
+    height: 0.82rem;
+    position: absolute;
+    right: 1.1rem;
+}
+
+/* 第四行：更新实名，只有箭头 */
+.identityInfoPageContent > .iconTextContent.separate > .rightArrow {
+    height: 0.82rem;
+    position: absolute;
+    right: 1.1rem;
+}
+
+.identityInfoPageContent > .iconTextContent.separate {
+    margin-top: 0.5rem;
+}
+
+/* 底部客服中心 */
+.identityInfoPageBottom {
+    position: absolute;
+    bottom: 2rem;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.identityInfoPageBottom > .customerService {
+    font-size: 0.9rem;
+    color: #576b95;
+    cursor: pointer;
+}
+
+.identityInfoPageBottom > .serviceNote {
+    font-size: 0.75rem;
+    color: #999;
+}

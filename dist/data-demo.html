@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据操作演示</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        h2 {
+            color: #07c160;
+        }
+        button {
+            background-color: #07c160;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #06ad56;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        .output {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-left: 3px solid #07c160;
+        }
+    </style>
+</head>
+<body>
+    <h1>微信模拟器 - 数据操作演示</h1>
+    
+    <div class="section">
+        <h2>1. 查看当前数据</h2>
+        <button onclick="viewAllData()">查看所有数据</button>
+        <button onclick="viewFriends()">查看好友列表</button>
+        <button onclick="viewSelfInfo()">查看个人信息</button>
+        <div id="output1" class="output"></div>
+    </div>
+
+    <div class="section">
+        <h2>2. 添加好友</h2>
+        <input type="text" id="friendName" placeholder="好友昵称" style="padding: 8px; margin: 5px;">
+        <input type="text" id="friendWxId" placeholder="微信号" style="padding: 8px; margin: 5px;">
+        <button onclick="addFriend()">添加好友</button>
+        <div id="output2" class="output"></div>
+    </div>
+
+    <div class="section">
+        <h2>3. 发送消息</h2>
+        <select id="friendSelect" style="padding: 8px; margin: 5px;">
+            <option value="">选择好友</option>
+        </select>
+        <input type="text" id="messageText" placeholder="消息内容" style="padding: 8px; margin: 5px; width: 300px;">
+        <button onclick="sendMessage()">发送消息</button>
+        <div id="output3" class="output"></div>
+    </div>
+
+    <div class="section">
+        <h2>4. 修改个人信息</h2>
+        <input type="text" id="newNickname" placeholder="新昵称" style="padding: 8px; margin: 5px;">
+        <input type="number" id="newBalance" placeholder="零钱余额" style="padding: 8px; margin: 5px;">
+        <button onclick="updateSelfInfo()">更新个人信息</button>
+        <div id="output4" class="output"></div>
+    </div>
+
+    <div class="section">
+        <h2>5. 数据管理</h2>
+        <button onclick="exportData()">导出所有数据</button>
+        <button onclick="clearAllData()" style="background-color: #fa5151;">清除所有数据</button>
+        <div id="output5" class="output"></div>
+    </div>
+
+    <script>
+        // 工具函数：格式化显示
+        function display(elementId, content) {
+            document.getElementById(elementId).innerHTML = '<pre>' + JSON.stringify(content, null, 2) + '</pre>';
+        }
+
+        // 1. 查看数据
+        function viewAllData() {
+            const allData = {};
+            Object.keys(localStorage).forEach(key => {
+                if (key.startsWith('wx_')) {
+                    try {
+                        allData[key] = JSON.parse(localStorage.getItem(key));
+                    } catch (e) {
+                        allData[key] = localStorage.getItem(key);
+                    }
+                }
+            });
+            display('output1', allData);
+        }
+
+        function viewFriends() {
+            const friends = JSON.parse(localStorage.getItem('wx_friendInfoList') || '[]');
+            display('output1', friends);
+            
+            // 更新好友选择框
+            const select = document.getElementById('friendSelect');
+            select.innerHTML = '<option value="">选择好友</option>';
+            friends.forEach(friend => {
+                const option = document.createElement('option');
+                option.value = friend.id;
+                option.textContent = friend.nickname;
+                select.appendChild(option);
+            });
+        }
+
+        function viewSelfInfo() {
+            const selfInfo = JSON.parse(localStorage.getItem('wx_selfInfo') || '{}');
+            display('output1', selfInfo);
+        }
+
+        // 2. 添加好友
+        function addFriend() {
+            const name = document.getElementById('friendName').value;
+            const wxId = document.getElementById('friendWxId').value;
+            
+            if (!name || !wxId) {
+                alert('请填写完整信息');
+                return;
+            }
+
+            const friends = JSON.parse(localStorage.getItem('wx_friendInfoList') || '[]');
+            const newFriend = {
+                id: 'friend_' + Date.now(),
+                nickname: name,
+                name: name,
+                realName: name,
+                sex: '1',
+                wxId: wxId,
+                avatar: './assets/img/avatar_role/default_nor_avatar.png',
+                address: '中国大陆',
+                signature: '',
+                top: '0',
+                unread: '0',
+                AIChat: '0',
+                bgImage: ''
+            };
+
+            friends.push(newFriend);
+            localStorage.setItem('wx_friendInfoList', JSON.stringify(friends));
+            
+            // 初始化聊天记录
+            const chatMessages = [{
+                id: Date.now() + '_1',
+                role: 'sys',
+                bodyContent: Date.now(),
+                type: 'sysTime'
+            }];
+            localStorage.setItem(`wx_friendChatMsgList_${newFriend.id}`, JSON.stringify(chatMessages));
+
+            display('output2', { success: true, friend: newFriend });
+            document.getElementById('friendName').value = '';
+            document.getElementById('friendWxId').value = '';
+            
+            alert('好友添加成功！刷新主页面即可看到新好友');
+        }
+
+        // 3. 发送消息
+        function sendMessage() {
+            const friendId = document.getElementById('friendSelect').value;
+            const messageText = document.getElementById('messageText').value;
+            
+            if (!friendId || !messageText) {
+                alert('请选择好友并输入消息');
+                return;
+            }
+
+            const chatKey = `wx_friendChatMsgList_${friendId}`;
+            const messages = JSON.parse(localStorage.getItem(chatKey) || '[]');
+            
+            const newMessage = {
+                id: Date.now() + '_msg',
+                role: 'self',
+                bodyContent: messageText,
+                type: 'text',
+                timestamp: Date.now()
+            };
+
+            messages.push(newMessage);
+            localStorage.setItem(chatKey, JSON.stringify(messages));
+
+            display('output3', { success: true, message: newMessage });
+            document.getElementById('messageText').value = '';
+            
+            alert('消息发送成功！刷新主页面即可看到');
+        }
+
+        // 4. 修改个人信息
+        function updateSelfInfo() {
+            const newNickname = document.getElementById('newNickname').value;
+            const newBalance = document.getElementById('newBalance').value;
+            
+            const selfInfo = JSON.parse(localStorage.getItem('wx_selfInfo') || '{}');
+            
+            if (newNickname) {
+                selfInfo.nickname = newNickname;
+            }
+            if (newBalance) {
+                selfInfo.looseChange = parseFloat(newBalance);
+            }
+
+            localStorage.setItem('wx_selfInfo', JSON.stringify(selfInfo));
+            
+            display('output4', { success: true, selfInfo: selfInfo });
+            document.getElementById('newNickname').value = '';
+            document.getElementById('newBalance').value = '';
+            
+            alert('个人信息更新成功！刷新主页面即可看到');
+        }
+
+        // 5. 数据管理
+        function exportData() {
+            const allData = {};
+            Object.keys(localStorage).forEach(key => {
+                if (key.startsWith('wx_')) {
+                    try {
+                        allData[key] = JSON.parse(localStorage.getItem(key));
+                    } catch (e) {
+                        allData[key] = localStorage.getItem(key);
+                    }
+                }
+            });
+            
+            const dataStr = JSON.stringify(allData, null, 2);
+            const blob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'wechat-data-' + Date.now() + '.json';
+            a.click();
+            
+            display('output5', { success: true, message: '数据已导出' });
+        }
+
+        function clearAllData() {
+            if (!confirm('确定要清除所有数据吗？此操作不可恢复！')) {
+                return;
+            }
+            
+            Object.keys(localStorage).forEach(key => {
+                if (key.startsWith('wx_')) {
+                    localStorage.removeItem(key);
+                }
+            });
+            
+            display('output5', { success: true, message: '所有数据已清除' });
+            alert('数据已清除！');
+        }
+
+        // 页面加载时更新好友列表
+        window.onload = function() {
+            viewFriends();
+        };
+    </script>
+</body>
+</html>

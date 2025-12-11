@@ -1,0 +1,22 @@
+{
+  "name": "wechat-demo",
+  "version": "1.0.0",
+  "description": "仿微信界面演示应用",
+  "main": "index.html",
+  "scripts": {
+    "build": "cordova build android",
+    "run": "cordova run android",
+    "prepare": "cordova prepare"
+  },
+  "keywords": ["wechat", "demo", "mobile"],
+  "author": "开发团队",
+  "license": "MIT",
+  "devDependencies": {
+    "cordova": "^12.0.0",
+    "cordova-android": "^12.0.0"
+  },
+  "cordova": {
+    "platforms": ["android"],
+    "plugins": {}
+  }
+}

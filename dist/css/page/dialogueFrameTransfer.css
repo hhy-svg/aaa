@@ -1,0 +1,124 @@
+.dialogueFrameTransferPage {
+    display: none;
+    background-color: white;
+    z-index: 10;
+}
+
+.dialogueFrameTransferPage>.pageTop {
+    background-color: white;
+    border: none;
+}
+
+.dialogueFrameTransferContent {
+    text-align: center;
+}
+
+.dialogueFrameTransferIcon {
+    width: 3.3rem;
+    margin-top: 3.3rem;
+}
+
+.dialogueFrameTransferTitle {
+    margin-top: 2.5rem;
+}
+
+.dialogueFrameTransferMoney {
+    margin-top: 1rem;
+    font-size: 2.9rem;
+    font-family: WeChatSansSS-Medium;
+}
+
+.dialogueFrameTransferDetails {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 2rem;
+    border-top: 0.8px solid rgb(207 207 207 / 20%);
+    padding-bottom: 0.7rem;
+    font-size: 0.9rem;
+}
+
+.dialogueFrameTransferDetails>div {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.6rem;
+}
+
+.dialogueFrameTransferDetails>div>.key {
+    color: rgb(96, 96, 96)
+}
+
+.dialogueFrameTransferHint {
+    position: relative;
+    padding: 0.9rem 0;
+    width: 90%;
+    height: 3rem;
+    margin-left: 5%;
+    border-top: 0.8px solid rgb(207 207 207 / 20%);
+    border-bottom: 0.8px solid rgb(207 207 207 / 20%);
+}
+
+.dialogueFrameTransferHint>div {
+    position: absolute;
+}
+
+.dialogueFrameTransferHint>.icon {
+    width: 3rem;
+    height: 3rem;
+    background-image: url(../../assets/img/dialogueFrameFriend/looseChange.png);
+    background-size: 60%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #f9f9f9;
+    border-radius: 10rem;
+}
+
+.dialogueFrameTransferHint>.hint1 {
+    top: 1rem;
+    left: 3.8rem;
+    font-size: 0.9rem;
+    color: #838383;
+}
+
+.dialogueFrameTransferHint>.hint2 {
+    top: 2.5rem;
+    left: 3.8rem;
+}
+
+.dialogueFrameTransferHint>.into {
+    top: 1.4rem;
+    right: 0;
+    width: 3.8rem;
+    height: 2.1rem;
+    line-height: 2.1rem;
+    color: white;
+    background-color: #05c160;
+    text-align: center;
+    border-radius: 0.4rem;
+}
+
+.confirmTransferProceeds {
+    width: 11rem;
+    height: 3rem;
+    line-height: 3rem;
+    color: white;
+    background-color: #05c160;
+    text-align: center;
+    border-radius: 0.4rem;
+    position: absolute;
+    bottom: 6.5rem;
+    font-weight: 500;
+    left: calc((100% - 11rem) / 2);
+}
+
+.confirmTransferBack {
+    width: 100%;
+    position: absolute;
+    bottom: 4rem;
+    text-align: center;
+    color: #838383;
+    font-size: 0.8rem;
+}
+
+.confirmTransferBack>span {
+    color: var(--textColor--blue2);
+}
