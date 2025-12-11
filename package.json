@@ -1,12 +1,9 @@
 {
   "name": "wechat-app",
   "version": "1.0.0",
-  "description": "仿微信H5应用",
+  "description": "WeChat H5 App",
   "main": "www/index.html",
   "scripts": {
     "build": "cordova build android"
-  },
-  "keywords": ["wechat", "cordova", "mobile"],
-  "author": "Developer",
-  "license": "MIT"
+  }
 }

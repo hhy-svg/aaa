@@ -1,0 +1,82 @@
+name: Build WeChat APK (Stable)
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+        
+    - name: Setup Java JDK
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: '8'
+        
+    - name: Setup Android SDK
+      uses: android-actions/setup-android@v2
+      with:
+        api-level: 29
+        build-tools: 29.0.3
+        
+    - name: Install Cordova (Stable Version)
+      run: |
+        npm install -g cordova@10.0.0
+        cordova --version
+      
+    - name: Verify project structure
+      run: |
+        ls -la
+        echo "=== Config.xml content ==="
+        cat config.xml
+        echo "=== WWW directory ==="
+        ls -la www/
+      
+    - name: Create minimal package.json
+      run: |
+        cat > package.json << 'EOF'
+        {
+          "name": "wechat-app",
+          "version": "1.0.0",
+          "description": "WeChat H5 App",
+          "main": "www/index.html"
+        }
+        EOF
+        
+    - name: Add Android platform (Stable Version)
+      run: |
+        cordova platform add android@9.1.0
+        
+    - name: List platforms
+      run: |
+        cordova platform list
+        
+    - name: Check Android requirements
+      run: |
+        cordova requirements android
+        
+    - name: Build APK (Debug Only)
+      run: |
+        cordova build android --debug --verbose
+        
+    - name: List all APK files
+      run: |
+        find . -name "*.apk" -type f -exec ls -la {} \;
+        
+    - name: Upload Debug APK
+      uses: actions/upload-artifact@v3
+      with:
+        name: wechat-app-debug
+        path: platforms/android/app/build/outputs/apk/debug/app-debug.apk
+        if-no-files-found: error
