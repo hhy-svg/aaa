@@ -1,0 +1,67 @@
+name: Build WeChat APK (Simple)
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        
+    - name: Setup Java
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: '11'
+        
+    - name: Setup Android SDK
+      uses: android-actions/setup-android@v2
+      
+    - name: Install Cordova
+      run: |
+        npm install -g cordova@12.0.0
+        cordova --version
+      
+    - name: Create package.json if not exists
+      run: |
+        if [ ! -f package.json ]; then
+          echo '{"name": "wechat-app", "version": "1.0.0"}' > package.json
+        fi
+      
+    - name: Initialize Cordova project
+      run: |
+        # 检查是否已经是Cordova项目
+        if [ ! -f config.xml ]; then
+          echo "Error: config.xml not found"
+          exit 1
+        fi
+        
+        # 创建必要的目录
+        mkdir -p platforms plugins
+        
+        # 添加Android平台
+        cordova platform add android@11.0.0
+      
+    - name: Build APK
+      run: |
+        # 构建调试版本
+        cordova build android --debug
+        
+        # 检查APK是否生成
+        find platforms/android -name "*.apk" -type f
+      
+    - name: Upload APK
+      uses: actions/upload-artifact@v3
+      with:
+        name: wechat-app-debug
+        path: platforms/android/app/build/outputs/apk/debug/app-debug.apk
